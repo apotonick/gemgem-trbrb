@@ -26,3 +26,9 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
+# gem "trailblazer", path: "../trailblazer"
+# gem "representable"
+gem "reform", git: "https://github.com/apotonick/reform.git"
+
+gem "trailblazer", git: "https://github.com/apotonick/trailblazer.git"
