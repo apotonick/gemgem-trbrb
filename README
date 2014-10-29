@@ -1,0 +1,4 @@
+RECIPES
+["analytics", "core", "deployment", "devise", "email", "extras", "frontend", "gems", "git", "init", "learn_rails", "locale", "omniauth", "pages", "rails_bootstrap", "rails_devise", "rails_devise_pundit", "rails_devise_roles", "rails_foundation", "rails_mailinglist_activejob", "rails_omniauth", "rails_signup_download", "railsapps", "readme", "roles", "setup", "tests"]
+PREFERENCES
+{:git=>true, :apps4=>"rails-foundation", :announcements=>"none", :authentication=>false, :authorization=>false, :dashboard=>"none", :better_errors=>true, :devise_modules=>false, :email=>"none", :frontend=>"foundation5", :local_env_file=>false, :pry=>false, :quiet_assets=>true, :pages=>"about", :locale=>"none", :dev_webserver=>"thin", :prod_webserver=>"thin", :database=>"sqlite", :templates=>"haml", :tests=>"none", :form_builder=>"simple_form"}
