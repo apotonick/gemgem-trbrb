@@ -6,6 +6,7 @@ class Thing < ActiveRecord::Base
 
     contract do
       model Thing
+
       property :name, validates: {presence: true}
     end
 
