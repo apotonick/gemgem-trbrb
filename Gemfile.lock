@@ -90,6 +90,9 @@ GEM
     mime-types (2.4.3)
     mini_portile (0.6.0)
     minitest (5.4.2)
+    minitest-spec-rails (5.0.4)
+      minitest (~> 5.0)
+      rails (~> 4.1.0.rc2)
     multi_json (1.10.1)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
@@ -183,6 +186,7 @@ DEPENDENCIES
   high_voltage
   html2haml
   jquery-rails
+  minitest-spec-rails
   pg
   quiet_assets
   rails (= 4.1.6)
