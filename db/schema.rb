@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 20141029101024) do
   end
 
   create_table "things", force: true do |t|
-    t.text "name"
-    t.text "image_meta_data"
+    t.text     "name"
+    t.text     "image_meta_data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "things_users", id: false, force: true do |t|
@@ -34,10 +36,12 @@ ActiveRecord::Schema.define(version: 20141029101024) do
   end
 
   create_table "users", force: true do |t|
-    t.string "email"
-    t.string "password_digest"
-    t.string "confirmation_token"
-    t.text   "image_meta_data"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "confirmation_token"
+    t.text     "image_meta_data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

@@ -13,7 +13,7 @@ gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
 group :development do
-  gem 'better_errors'
+  # gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'html2haml'
   gem 'quiet_assets'
@@ -35,3 +35,4 @@ end
 # gem "reform", git: "https://github.com/apotonick/reform.git"
 
 gem "trailblazer", git: "https://github.com/apotonick/trailblazer.git"
+gem "cells", git: "https://github.com/apotonick/cells"

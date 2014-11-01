@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/apotonick/cells
+  revision: fb927367d98cdeadc5f262eac50cc102bbb65d53
+  specs:
+    cells (4.0.0.alpha1)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
+      tilt (>= 1.4, < 3)
+      uber (~> 0.0.9)
+
+GIT
   remote: https://github.com/apotonick/trailblazer.git
   revision: c428ffb4b842a33549b250439766c313980c93d3
   specs:
@@ -38,14 +48,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
-    better_errors (2.0.0)
-      coderay (>= 1.0.0)
-      erubis (>= 2.6.6)
-      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
-    coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -178,8 +183,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  better_errors
   binding_of_caller
+  cells!
   coffee-rails (~> 4.0.0)
   foundation-rails
   haml-rails

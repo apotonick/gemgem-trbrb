@@ -15,6 +15,8 @@ class InitialDatabase < ActiveRecord::Migration
     create_table :things do |t|
       t.text :name
       t.text :image_meta_data
+
+      t.timestamps
     end
 
     create_table :users do |t|
@@ -22,6 +24,8 @@ class InitialDatabase < ActiveRecord::Migration
       t.string :password_digest
       t.string :confirmation_token
       t.text   :image_meta_data
+
+      t.timestamps
     end
 
     create_join_table :things, :users do |t|
