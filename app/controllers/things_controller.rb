@@ -5,9 +5,27 @@ class ThingsController < ApplicationController
 
   def create
     run Thing::Create do |op|
-      redirect_to op.model
-    end.else do |op|
-      render action: :new
+      return redirect_to op.model
     end
+
+    render action: :new
+  end
+
+  def show
+    present Thing::Update
+  end
+
+  def edit
+    present Thing::Update
+
+    render action: :new
+  end
+
+  def update
+    run Thing::Update do |op|
+      return redirect_to op.model
+    end
+
+    render action: :new
   end
 end

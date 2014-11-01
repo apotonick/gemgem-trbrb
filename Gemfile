@@ -29,6 +29,6 @@ end
 
 # gem "trailblazer", path: "../trailblazer"
 # gem "representable"
-gem "reform", git: "https://github.com/apotonick/reform.git"
+# gem "reform", git: "https://github.com/apotonick/reform.git"
 
 gem "trailblazer", git: "https://github.com/apotonick/trailblazer.git"

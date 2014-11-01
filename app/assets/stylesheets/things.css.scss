@@ -1,0 +1,23 @@
+.header {
+  margin-bottom: 9px;
+
+  img { float: left; margin-right: 6px; }
+  h1 { margin: 0; }
+  a { font-size: 12pt; }
+}
+
+ul {
+  list-style-type: none;
+  margin-left: 0;
+}
+
+
+// move to rating/cell assets dir?
+li.positive { background-color: #61FAA9; padding: 10px; }
+li.negative { background-color: #DCDEDD; padding: 10px; }
+.rating {
+  .header { text-align: right; font-size: 0.8em; }
+  .date { color: #727372 }
+
+  margin-bottom: 9px;
+}
