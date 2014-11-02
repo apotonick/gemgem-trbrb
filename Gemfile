@@ -36,3 +36,6 @@ end
 
 gem "trailblazer", git: "https://github.com/apotonick/trailblazer.git"
 gem "cells", git: "https://github.com/apotonick/cells"
+# gem "cells", path: "../cells"
+
+gem 'rails-timeago'
