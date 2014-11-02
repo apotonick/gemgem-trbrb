@@ -45,9 +45,14 @@ describe ThingsController do
   end
 
   describe "#show" do
-    it do
+    it "HTML" do
       get :show, id: thing.id
       response.body.must_match /Trailblazer/
+    end
+
+    it "JSON" do
+      get :show, id: thing.id, format: :json
+      response.body.must_equal "{sadf}"
     end
   end
 end

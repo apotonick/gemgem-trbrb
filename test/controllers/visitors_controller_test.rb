@@ -8,7 +8,7 @@ class IntegrationTest < ActionDispatch::IntegrationTest
     get "/"
 
     # puts response.body
-    assert_select ".columns .header a", "Descendents"
+    assert_select ".columns .header a", "Descendents" # TODO: test not-end.
     assert_select ".columns.end .header a", "Trailblazer"
   end
 end
