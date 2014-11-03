@@ -19,5 +19,7 @@ class Thing < ActiveRecord::Base
 
   class Update < Create
     action :update
+    include Responder
+    include Representer
   end
 end

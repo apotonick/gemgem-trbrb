@@ -52,7 +52,7 @@ describe ThingsController do
 
     it "JSON" do
       get :show, id: thing.id, format: :json
-      response.body.must_equal "{sadf}"
+      response.body.must_equal "{\"name\":\"Trailblazer\"}"
     end
   end
 end

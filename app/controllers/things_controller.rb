@@ -1,6 +1,8 @@
 class ThingsController < ApplicationController
+  respond_to :html, :json
+
   def new
-    present Thing::Create
+    form Thing::Create
   end
 
   def create
@@ -16,7 +18,7 @@ class ThingsController < ApplicationController
   end
 
   def edit
-    present Thing::Update
+    form Thing::Update
 
     render action: :new
   end
