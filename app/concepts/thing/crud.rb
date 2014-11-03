@@ -21,5 +21,11 @@ class Thing < ActiveRecord::Base
     action :update
     include Responder
     include Representer
+
+    representer do
+      include Roar::JSON::HAL
+
+      link(:self) { thing_path(represented) }
+    end
   end
 end

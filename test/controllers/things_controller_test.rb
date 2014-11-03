@@ -52,7 +52,7 @@ describe ThingsController do
 
     it "JSON" do
       get :show, id: thing.id, format: :json
-      response.body.must_equal "{\"name\":\"Trailblazer\"}"
+      response.body.must_equal "{\"name\":\"Trailblazer\",\"_links\":{\"self\":{\"href\":\"/things/1\"}}}"
     end
   end
 end

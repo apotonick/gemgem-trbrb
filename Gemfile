@@ -35,7 +35,10 @@ end
 # gem "reform", git: "https://github.com/apotonick/reform.git"
 
 gem "trailblazer", git: "https://github.com/apotonick/trailblazer.git"
+# gem "trailblazer", path: "../trailblazer"
 gem "cells", git: "https://github.com/apotonick/cells"
 # gem "cells", path: "../cells"
+
+gem "roar", "1.0.0.beta2"
 
 gem 'rails-timeago'
