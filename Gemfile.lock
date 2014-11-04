@@ -8,16 +8,6 @@ GIT
       tilt (>= 1.4, < 3)
       uber (~> 0.0.9)
 
-GIT
-  remote: https://github.com/apotonick/trailblazer.git
-  revision: e308d6cf0147b3870f10073fef4895ad08a47dfd
-  specs:
-    trailblazer (0.0.1)
-      actionpack (>= 3.0.0)
-      reform (= 1.2.0.beta1)
-      representable (>= 2.1.1, < 2.2.0)
-      uber (>= 0.0.10)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -177,6 +167,11 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    trailblazer (0.1.0)
+      actionpack (>= 3.0.0)
+      reform (= 1.2.0.beta1)
+      representable (>= 2.1.1, < 2.2.0)
+      uber (>= 0.0.10)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uber (0.0.10)
@@ -210,5 +205,5 @@ DEPENDENCIES
   sqlite3
   therubyracer
   thin
-  trailblazer!
+  trailblazer (= 0.1.0)
   uglifier (>= 1.3.0)
