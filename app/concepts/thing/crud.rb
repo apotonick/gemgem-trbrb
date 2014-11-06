@@ -22,10 +22,19 @@ class Thing < ActiveRecord::Base
     include Responder
     include Representer
 
-    representer do
-      include Roar::JSON::HAL
+    builds do |params|
+      JSON if params[:format] == "json"
+    end
 
-      link(:self) { thing_path(represented) }
+    class JSON < self
+      contract do
+        include Reform::Form::JSON
+      end
+
+      representer do
+        include Roar::JSON::HAL
+        link(:self) { thing_path(represented) }
+      end
     end
   end
 end

@@ -42,6 +42,12 @@ describe ThingsController do
       put :update, id: thing.id, thing: {name: nil}
       assert_select ".error"
     end
+
+    # JSON
+    it do
+      put :update, {name: "Trb"}.to_json, id: thing.id, format: :json
+      assert_redirected_to thing_path(thing)
+    end
   end
 
   describe "#show" do
