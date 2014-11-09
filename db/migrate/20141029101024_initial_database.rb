@@ -14,6 +14,7 @@ class InitialDatabase < ActiveRecord::Migration
 
     create_table :things do |t|
       t.text :name
+      t.text :description
       t.text :image_meta_data
 
       t.timestamps

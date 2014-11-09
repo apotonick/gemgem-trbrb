@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20141029101024) do
 
   create_table "things", force: true do |t|
     t.text     "name"
+    t.text     "description"
     t.text     "image_meta_data"
     t.datetime "created_at"
     t.datetime "updated_at"
