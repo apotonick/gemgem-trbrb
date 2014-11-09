@@ -3,7 +3,7 @@ PATH
   specs:
     trailblazer (0.1.1)
       actionpack (>= 3.0.0)
-      reform (= 1.2.0)
+      reform (~> 1.2.1)
       representable (>= 2.1.1, < 2.2.0)
       uber (>= 0.0.10)
 
@@ -59,7 +59,7 @@ GEM
     coffee-script-source (1.8.0)
     daemons (1.1.9)
     debug_inspector (0.0.2)
-    disposable (0.0.8)
+    disposable (0.0.9)
       representable (~> 2.0)
       uber
     erubis (2.7.0)
@@ -132,7 +132,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.3.2)
     ref (1.0.5)
-    reform (1.2.0)
+    reform (1.2.1)
       activemodel
       disposable (~> 0.0.5)
       representable (~> 2.1.0)
