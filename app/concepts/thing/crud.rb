@@ -8,6 +8,7 @@ class Thing < ActiveRecord::Base
       model Thing
 
       property :name, validates: {presence: true}
+      property :description
     end
 
     def process(params)
@@ -15,6 +16,19 @@ class Thing < ActiveRecord::Base
         f.save
       end
     end
+
+    # def process(params, model, contract)
+    #   # setup!
+    #   # validate!
+    # end
+
+    # def validate!(params, model, contract)
+    #   validate(params) do
+    #     return success
+    #   end
+
+    #   invalid
+    # end
   end
 
   class Update < Create
