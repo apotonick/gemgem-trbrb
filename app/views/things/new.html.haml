@@ -2,6 +2,7 @@
 
 = simple_form_for @form do |f|
   = f.input :name, placeholder: "Name", label: false, :as => :string
+  = f.input :description, placeholder: "Description", label: false
 
   = f.button :submit, class: :expand
 

@@ -12,7 +12,7 @@ describe ThingsController do
 
   # create
   describe "#create" do
-    it "HTML, valid" do
+    it do
       post :create, {thing: {name: "Bad Religion"}}
       assert_redirected_to thing_path(Thing.last)
     end

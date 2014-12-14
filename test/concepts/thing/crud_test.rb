@@ -9,5 +9,13 @@ class ThingCrudTest < MiniTest::Spec
       thing.name.must_equal "Rails"
       thing.description.must_equal "Kickass web dev"
     end
+
+    it "invalid" do
+      res, op = Thing::Create.run(thing: {name: ""})
+
+      res.must_equal false
+      op.contract.errors.to_s.must_equal "{:name=>[\"can't be blank\"]}"
+      op.model.persisted?.must_equal false
+    end
   end
 end

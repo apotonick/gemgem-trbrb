@@ -7,8 +7,11 @@ class Thing < ActiveRecord::Base
     contract do
       model Thing
 
-      property :name, validates: {presence: true}
+      property :name
       property :description
+
+      validates :name, presence: true
+      validates :description, length: {in: 4..160}, allow_blank: true
     end
 
     def process(params)
@@ -16,19 +19,6 @@ class Thing < ActiveRecord::Base
         f.save
       end
     end
-
-    # def process(params, model, contract)
-    #   # setup!
-    #   # validate!
-    # end
-
-    # def validate!(params, model, contract)
-    #   validate(params) do
-    #     return success
-    #   end
-
-    #   invalid
-    # end
   end
 
   class Update < Create
