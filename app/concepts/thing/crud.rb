@@ -23,6 +23,14 @@ class Thing < ActiveRecord::Base
 
   class Update < Create
     action :update
+
+    contract do
+      property :name, writeable: false
+    end
+  end
+
+  class U_pdate < Create
+    action :update
     include Responder
     include Representer
 

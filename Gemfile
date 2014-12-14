@@ -32,7 +32,7 @@ end
 
 # gem "trailblazer", path: "../trailblazer"
 # gem "representable"
-# gem "reform", git: "https://github.com/apotonick/reform.git"
+gem "reform", "1.2.4" #path: "../reform" # git: "https://github.com/apotonick/reform.git"
 
 # gem "trailblazer", git: "https://github.com/apotonick/trailblazer.git"
 gem "trailblazer", path: "../trailblazer"
