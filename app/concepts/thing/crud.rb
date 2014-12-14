@@ -5,7 +5,7 @@ class Thing < ActiveRecord::Base
     model Thing, :create
 
     contract do
-      model Thing
+      model Thing # this will be infered in the next trb release.
 
       property :name
       property :description
