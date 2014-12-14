@@ -17,5 +17,12 @@ class ThingCrudTest < MiniTest::Spec
       op.contract.errors.to_s.must_equal "{:name=>[\"can't be blank\"]}"
       op.model.persisted?.must_equal false
     end
+
+    it "invalid description" do
+      res, op = Thing::Create.run(thing: {name: "Rails", description: "hi"})
+
+      res.must_equal false
+      op.contract.errors.to_s.must_equal "{:description=>[\"is too short (minimum is 4 characters)\"]}"
+    end
   end
 end
