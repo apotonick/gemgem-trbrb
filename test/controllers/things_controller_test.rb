@@ -5,12 +5,13 @@ describe ThingsController do
 
   describe "#new" do
     it "#new [HTML]" do
+      # TODO: please make Capybara matchers work with this!
       get :new
       assert_select "form #thing_name"
+      assert_select "form #thing_name.readonly", false
     end
   end
 
-  # create
   describe "#create" do
     it do
       post :create, {thing: {name: "Bad Religion"}}
@@ -24,7 +25,6 @@ describe ThingsController do
   end
 
   describe "#edit" do
-    # edit
     it do
       get :edit, id: thing.id
       assert_select "form #thing_name.readonly[value='Trailblazer']"
