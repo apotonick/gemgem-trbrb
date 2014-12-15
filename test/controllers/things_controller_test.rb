@@ -39,14 +39,8 @@ describe ThingsController do
     end
 
     it do
-      put :update, id: thing.id, thing: {name: nil}
+      put :update, id: thing.id, thing: {description: "bla"}
       assert_select ".error"
-    end
-
-    # JSON
-    it do
-      put :update, {name: "Trb"}.to_json, id: thing.id, format: :json
-      assert_redirected_to thing_path(thing)
     end
   end
 
@@ -54,11 +48,6 @@ describe ThingsController do
     it "HTML" do
       get :show, id: thing.id
       response.body.must_match /Trailblazer/
-    end
-
-    it "JSON" do
-      get :show, id: thing.id, format: :json
-      response.body.must_equal "{\"name\":\"Trailblazer\",\"_links\":{\"self\":{\"href\":\"/things/#{thing.id}\"}}}"
     end
   end
 end

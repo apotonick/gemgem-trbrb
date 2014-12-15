@@ -25,4 +25,18 @@ class ThingCrudTest < MiniTest::Spec
       op.contract.errors.to_s.must_equal "{:description=>[\"is too short (minimum is 4 characters)\"]}"
     end
   end
+
+  describe "Update" do
+    let (:thing) { Thing::Create[thing: {name: "Rails", description: "Kickass web dev"}].model }
+
+    it "persists valid, ignores name" do
+      Thing::Update[
+        id:     thing.id,
+        thing: {name: "Lotus", description: "MVC, well.."}].model
+
+      thing.reload
+      thing.name.must_equal "Rails"
+      thing.description.must_equal "MVC, well.."
+    end
+  end
 end

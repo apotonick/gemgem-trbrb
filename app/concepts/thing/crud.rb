@@ -28,25 +28,4 @@ class Thing < ActiveRecord::Base
       property :name, writeable: false
     end
   end
-
-  class U_pdate < Create
-    action :update
-    include Responder
-    include Representer
-
-    builds do |params|
-      JSON if params[:format] == "json"
-    end
-
-    class JSON < self
-      contract do
-        include Reform::Form::JSON
-      end
-
-      representer do
-        include Roar::JSON::HAL
-        link(:self) { thing_path(represented) }
-      end
-    end
-  end
 end
