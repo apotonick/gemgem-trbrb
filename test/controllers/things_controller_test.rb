@@ -27,7 +27,7 @@ describe ThingsController do
     # edit
     it do
       get :edit, id: thing.id
-      assert_select "form #thing_name[value='Trailblazer']"
+      assert_select "form #thing_name.readonly[value='Trailblazer']"
     end
   end
 

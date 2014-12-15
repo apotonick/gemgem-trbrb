@@ -1,5 +1,5 @@
 class ThingsController < ApplicationController
-  respond_to :html, :json
+  respond_to :html
 
   def new
     form Thing::Create
