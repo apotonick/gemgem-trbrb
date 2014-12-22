@@ -5,4 +5,5 @@ class Thing < ActiveRecord::Base
   scope :latest, lambda { all.limit(3).order("id DESC") }
 end
 
-require_dependency "thing/crud"
+# this is the way to load embedded operations not following the autoloader naming if you do NOT use trb/crud_autoloading.
+# require_dependency "thing/crud"

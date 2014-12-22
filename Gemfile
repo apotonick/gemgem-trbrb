@@ -30,13 +30,12 @@ group :production do
   gem 'rails_12factor'
 end
 
-# gem "trailblazer", path: "../trailblazer"
 # gem "representable"
 gem "reform", "1.2.4" #path: "../reform" # git: "https://github.com/apotonick/reform.git"
 
 # gem "trailblazer", git: "https://github.com/apotonick/trailblazer.git"
-gem "trailblazer", path: "../trailblazer"
-# gem "trailblazer", "0.1.0"
+# gem "trailblazer", path: "../trailblazer"
+gem "trailblazer", "0.1.2"
 gem "cells", git: "https://github.com/apotonick/cells"
 # gem "cells", path: "../cells"
 
