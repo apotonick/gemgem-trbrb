@@ -6,5 +6,8 @@ class ThingConceptTest < Cell::TestCase
   #   assert_select 'p'
   # end
 
+  test '' do
+    cell("thing/cell")
+  end
 
 end

@@ -23,4 +23,13 @@ private
     classes << "end" if options[:last] == model
     classes
   end
+
+
+  # The public helper that collects latest things and renders the grid.
+  class Grid < Cell::Concept
+    def show
+      things = Thing.latest
+      concept("thing/cell", collection: things, last: things.last)
+    end
+  end
 end
