@@ -19,7 +19,7 @@ private
   end
 
   def classes
-    classes = ["large-3"]
+    classes = ["box", "large-3", "columns"]
     classes << "end" if options[:last] == model
     classes
   end
