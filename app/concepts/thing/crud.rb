@@ -1,5 +1,4 @@
 class Thing < ActiveRecord::Base
-
   class Create < Trailblazer::Operation
     include CRUD
     model Thing, :create

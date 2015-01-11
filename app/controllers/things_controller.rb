@@ -14,7 +14,11 @@ class ThingsController < ApplicationController
   end
 
   def show
-    present Thing::Update
+    present Thing::Update do
+      @thing = @model
+      form Comment::Create # overrides @model and @form!
+      # raise @form.model.inspect
+    end
   end
 
   def edit

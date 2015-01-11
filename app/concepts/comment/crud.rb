@@ -1,7 +1,7 @@
 class Comment < ActiveRecord::Base
   class Create < Trailblazer::Operation
     include CRUD
-    model Comment
+    model Comment, :create
 
     contract do
       include Reform::Form::ModelReflections
