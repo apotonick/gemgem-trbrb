@@ -63,6 +63,8 @@ GEM
     disposable (0.0.9)
       representable (~> 2.0)
       uber
+    email_validator (1.5.0)
+      activemodel
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.2.2)
@@ -192,6 +194,7 @@ DEPENDENCIES
   binding_of_caller
   cells!
   coffee-rails (~> 4.0.0)
+  email_validator
   foundation-rails
   haml-rails
   high_voltage

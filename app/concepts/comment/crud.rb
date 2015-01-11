@@ -14,8 +14,7 @@ class Comment < ActiveRecord::Base
       property :user, populate_if_empty: User do # we could create the User in the Operation#process?
         property :email
 
-        validates :email, presence: true
-        # validates :email, email: true
+        validates :email, presence: true, email: true
         #validates_uniqueness_of :email # this assures the new user is new and not an existing one.
 
         # this should definitely NOT sit in the model.
