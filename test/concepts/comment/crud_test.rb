@@ -37,14 +37,23 @@ class CommentCrudTest < MiniTest::Spec
     it "invalid email" do
       res, operation = Comment::Create.run(
         comment: {
-          body:   "Fantastic!",
-          weight: 1,
           user:   { email: "1337@" }
         }
       )
 
       res.must_equal false
-      operation.contract.errors.messages.must_equal(:"user.email"=>["is invalid"], :thing=>["can't be blank"])
+      operation.contract.errors.messages[:"user.email"].must_equal ["is invalid"]
+    end
+
+    it "invalid body" do
+      res, operation = Comment::Create.run(
+        comment: {
+          body:   "Fantastic, but a little bit to long this piece of shared information is! Didn't we say that it has to be less than 16 characters? Well, maybe you should listen to what I say."
+        }
+      )
+
+      res.must_equal false
+      operation.contract.errors.messages[:"body"].must_equal ["is too long (maximum is 160 characters)"]
     end
   end
 
