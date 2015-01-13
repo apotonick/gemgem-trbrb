@@ -17,7 +17,13 @@ class ThingsController < ApplicationController
     present Thing::Update do
       @thing = @model
       form Comment::Create # overrides @model and @form!
-      # raise @form.model.inspect
+    end
+  end
+
+  def create_comment
+    present Thing::Update do
+      @thing = @model
+      run Comment::Create # overrides @model and @form!
     end
   end
 

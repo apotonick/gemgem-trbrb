@@ -7,7 +7,7 @@
 
 %hr
 
-= simple_form_for [@thing, @form] do |f| # POST /ratings/
+= simple_form_for @form, url: create_comment_thing_path(@thing) do |f| # POST /things/1/comments/
   = f.input :body, placeholder: "Your comment", label: false
   = f.collection_radio_buttons :weight, [[1, 'Nice!'] ,[0, 'Rubbish!']], :first, :last
 
