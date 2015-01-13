@@ -48,6 +48,8 @@ describe ThingsController do
     it "HTML" do
       get :show, id: thing.id
       response.body.must_match /Trailblazer/
+
+      assert_select "input.button" # the form for creating comment.
     end
   end
 end
