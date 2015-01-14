@@ -30,6 +30,7 @@ class Comment < ActiveRecord::Base
       validates :user, presence: true
 
       validates :body, length: { in: 6..160 }
+      validates :weight, inclusion: { in: [0,1] }
       validates :thing, presence: true
     end
 

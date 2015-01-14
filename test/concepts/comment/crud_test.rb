@@ -34,7 +34,7 @@ class CommentCrudTest < MiniTest::Spec
       operation.contract.errors.messages.must_equal(:thing=>["can't be blank"], :user=>["can't be blank"])
     end
 
-    it "invalid email" do
+    it "invalid email, weight" do
       res, operation = Comment::Create.run(
         comment: {
           user:   { email: "1337@" }
@@ -43,6 +43,7 @@ class CommentCrudTest < MiniTest::Spec
 
       res.must_equal false
       operation.contract.errors.messages[:"user.email"].must_equal ["is invalid"]
+      operation.contract.errors.messages[:"weight"].must_equal ["is not included in the list"]
     end
 
     it "invalid body" do
