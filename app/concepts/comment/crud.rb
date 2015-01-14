@@ -5,7 +5,6 @@ class Comment < ActiveRecord::Base
 
     contract do
       include Reform::Form::ModelReflections
-      model :comment
 
       property :body
       property :weight

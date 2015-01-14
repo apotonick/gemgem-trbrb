@@ -1,12 +1,3 @@
-PATH
-  remote: ../trailblazer
-  specs:
-    trailblazer (0.2.0)
-      actionpack (>= 3.0.0)
-      reform (~> 1.2.0)
-      representable (>= 2.1.1, < 2.2.0)
-      uber (>= 0.0.10)
-
 GIT
   remote: https://github.com/apotonick/cells
   revision: 9e3c5791137011a3b30b86e1766a56bf27c4c243
@@ -16,6 +7,15 @@ GIT
       railties (>= 3.2)
       tilt (>= 1.4, < 3)
       uber (~> 0.0.9)
+
+PATH
+  remote: ../trailblazer
+  specs:
+    trailblazer (0.2.0)
+      actionpack (>= 3.0.0)
+      reform (~> 1.2.0)
+      representable (>= 2.1.1, < 2.2.0)
+      uber (>= 0.0.10)
 
 GEM
   remote: https://rubygems.org/

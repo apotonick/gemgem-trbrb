@@ -49,7 +49,8 @@ describe ThingsController do
       get :show, id: thing.id
       response.body.must_match /Trailblazer/
 
-      assert_select "input.button" # the form for creating comment.
+       # the form. this assures the model_name is properly set.
+      assert_select "input.button[value=?]", "Create Comment"
       # make sure the user form is displayed.
       assert_select ".comment_user_email"
     end
