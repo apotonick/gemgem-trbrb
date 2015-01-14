@@ -50,6 +50,8 @@ describe ThingsController do
       response.body.must_match /Trailblazer/
 
       assert_select "input.button" # the form for creating comment.
+      # make sure the user form is displayed.
+      assert_select ".comment_user_email"
     end
   end
 end

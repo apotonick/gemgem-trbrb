@@ -8,7 +8,7 @@ class CommentCrudTest < MiniTest::Spec
       comment = Comment::Create[
         comment: {
           body:   "Fantastic!",
-          weight: 1,
+          weight: "1",
           user:   { email: "jonny@trb.org" }
         },
         id: thing.id
@@ -26,15 +26,15 @@ class CommentCrudTest < MiniTest::Spec
       res, operation = Comment::Create.run(
         comment: {
           body:   "Fantastic!",
-          weight: 1
+          weight: "1"
         }
       )
 
       res.must_equal false
-      operation.contract.errors.messages.must_equal(:thing=>["can't be blank"], :user=>["can't be blank"])
+      operation.contract.errors.messages.must_equal(:thing=>["can't be blank"], :"user.email"=>["can't be blank", "is invalid"] )
     end
 
-    it "invalid email, weight" do
+    it "invalid email, no weight" do
       res, operation = Comment::Create.run(
         comment: {
           user:   { email: "1337@" }
