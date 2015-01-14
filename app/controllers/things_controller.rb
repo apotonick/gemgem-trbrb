@@ -14,17 +14,19 @@ class ThingsController < ApplicationController
   end
 
   def show
-    present Thing::Update do
-      @thing = @model
-      form Comment::Create # overrides @model and @form!
-    end
+    present Thing::Update
+    @thing = @model
+
+    form Comment::Create # overrides @model and @form!
   end
 
   def create_comment
-    present Thing::Update do
-      @thing = @model
-      run Comment::Create # overrides @model and @form!
-    end
+    present Thing::Update
+    @thing = @model
+
+    run Comment::Create # overrides @model and @form!
+
+    render :show
   end
 
   def edit
