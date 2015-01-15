@@ -15,15 +15,11 @@ class ThingsController < ApplicationController
 
   def show
     present Thing::Update
-    @thing = @model
-
     form Comment::Create # overrides @model and @form!
   end
 
   def create_comment
     present Thing::Update
-    @thing = @model
-
     run Comment::Create # overrides @model and @form!
 
     render :show
