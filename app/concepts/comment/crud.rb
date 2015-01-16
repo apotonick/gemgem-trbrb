@@ -15,14 +15,17 @@ class Comment < ActiveRecord::Base
       validates :thing, presence: true
 
 
-      property :user do
+      property :user, populate_if_empty: User do
         property :email
         validates :email, presence: true, email: true
       end
 
       validates :user, presence: true
-    end
 
+      def user
+        User.new
+      end
+    end
 
     def process(params) # or (params, env)
       validate(params[:comment]) do |f|
