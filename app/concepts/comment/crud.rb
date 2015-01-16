@@ -31,7 +31,7 @@ class Comment < ActiveRecord::Base
     end
 
   private
-    def setup_model(params)
+    def setup_model!(params)
       model.thing = Thing.find_by_id(params[:id])
       # model.build_user
     end
