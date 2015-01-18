@@ -12,15 +12,13 @@ class Comment < ActiveRecord::Base
 
       validates :body, length: { in: 6..160 }
       validates :weight, inclusion: { in: ["0", "1"] }
-      validates :thing, presence: true
+      validates :thing, :user, presence: true
 
 
-      property :user do
+      property :user, prepopulate: ->(*) { User.new }, populate_if_empty: ->(*) { User.new } do
         property :email
         validates :email, presence: true, email: true
       end
-
-      validates :user, presence: true
     end
 
 
@@ -31,7 +29,7 @@ class Comment < ActiveRecord::Base
     end
 
   private
-    def setup_model(params)
+    def setup_model!(params)
       model.thing = Thing.find_by_id(params[:id])
       # model.build_user
     end
