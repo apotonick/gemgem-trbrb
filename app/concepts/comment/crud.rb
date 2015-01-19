@@ -12,18 +12,11 @@ class Comment < ActiveRecord::Base
 
       validates :body, length: { in: 6..160 }
       validates :weight, inclusion: { in: ["0", "1"] }
-      validates :thing, presence: true
+      validates :thing, :user, presence: true
 
-
-      property :user, populate_if_empty: User do
+      property :user, prepopulate: ->(*) { User.new }, populate_if_empty: ->(*) { User.new } do
         property :email
         validates :email, presence: true, email: true
-      end
-
-      validates :user, presence: true
-
-      def user
-        User.new
       end
     end
 
