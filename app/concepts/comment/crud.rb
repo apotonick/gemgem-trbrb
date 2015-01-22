@@ -5,10 +5,14 @@ class Comment < ActiveRecord::Base
 
     contract do
       include Reform::Form::ModelReflections
+      # include Reform::Form::Coercion
+      reform_2_0!
+
+      property :endorsement, virtual: true #, type: Virtus::Attribute::Boolean
 
       property :body
       property :weight
-      property :thing #, virtual: true
+      property :thing
 
       validates :body, length: { in: 6..160 }
       validates :weight, inclusion: { in: ["0", "1"] }
@@ -20,9 +24,11 @@ class Comment < ActiveRecord::Base
       end
     end
 
-    def process(params) # or (params, env)
+    def process(params)
       validate(params[:comment]) do |f|
-        f.save # save rating and user.
+        f.save # save comment and user.
+
+        Endorsement.create(user: f.model.user, thing: f.model.thing) if f.endorsement == "1"
       end
     end
 

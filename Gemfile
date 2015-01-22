@@ -33,6 +33,7 @@ end
 # gem "representable"
 # gem "reform", "1.2.4" # git: "https://github.com/apotonick/reform.git"
 gem "reform", path: "../reform"
+gem "virtus"
 
 # gem "trailblazer", git: "https://github.com/apotonick/trailblazer.git"
 # gem "trailblazer", path: "../trailblazer"
@@ -40,7 +41,7 @@ gem "trailblazer", "0.2.1"
 gem "cells", git: "https://github.com/apotonick/cells"
 # gem "cells", path: "../cells"
 
-gem "roar", "1.0.0.beta2"
+gem "roar", "1.0.0"
 
 gem "rails-timeago"
 gem "email_validator"

@@ -1,4 +1,5 @@
 require 'reform/form/json'
+require 'reform/form/coercion'
 
 require "roar/json"
 require 'roar/json/hal'
