@@ -31,7 +31,7 @@ class CommentCrudTest < MiniTest::Spec
       )
 
       res.must_equal false
-      operation.contract.errors.messages.must_equal(:thing=>["can't be blank"], :"user.email"=>["can't be blank", "is invalid"] )
+      operation.errors.messages.must_equal(:thing=>["can't be blank"], :"user.email"=>["can't be blank", "is invalid"] )
     end
 
     it "invalid email, no weight" do
@@ -42,8 +42,8 @@ class CommentCrudTest < MiniTest::Spec
       )
 
       res.must_equal false
-      operation.contract.errors.messages[:"user.email"].must_equal ["is invalid"]
-      operation.contract.errors.messages[:"weight"].must_equal ["is not included in the list"]
+      operation.errors.messages[:"user.email"].must_equal ["is invalid"]
+      operation.errors.messages[:"weight"].must_equal ["is not included in the list"]
     end
 
     it "invalid body" do
@@ -54,7 +54,7 @@ class CommentCrudTest < MiniTest::Spec
       )
 
       res.must_equal false
-      operation.contract.errors.messages[:"body"].must_equal ["is too long (maximum is 160 characters)"]
+      operation.errors.messages[:"body"].must_equal ["is too long (maximum is 160 characters)"]
     end
   end
 

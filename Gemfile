@@ -36,7 +36,7 @@ gem "reform", path: "../reform"
 
 # gem "trailblazer", git: "https://github.com/apotonick/trailblazer.git"
 # gem "trailblazer", path: "../trailblazer"
-gem "trailblazer", "0.2.1"
+gem "trailblazer", "0.2.2"
 gem "cells", git: "https://github.com/apotonick/cells"
 # gem "cells", path: "../cells"
 
