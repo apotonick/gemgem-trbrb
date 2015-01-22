@@ -21,7 +21,10 @@ class ThingsController < ApplicationController
 
   def create_comment
     present Thing::Update
-    run Comment::Create # overrides @model and @form!
+    run Comment::Create do |op| # overrides @model and @form!
+      flash[:notice] = "Created comment for \"#{op.thing.name}\""
+      return redirect_to thing_path(op.thing)
+    end
 
     render :show
   end

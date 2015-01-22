@@ -5,14 +5,15 @@ class CommentCrudTest < MiniTest::Spec
 
   describe "Create" do
     it "persists valid" do
-      comment = Comment::Create[
+      res, op = Comment::Create.run(
         comment: {
           body:   "Fantastic!",
           weight: "1",
           user:   { email: "jonny@trb.org" }
         },
         id: thing.id
-      ].model
+      )
+      comment = op.model
 
       comment.persisted?.must_equal true
       comment.body.must_equal "Fantastic!"
@@ -20,6 +21,8 @@ class CommentCrudTest < MiniTest::Spec
 
       comment.user.persisted?.must_equal true
       comment.user.email.must_equal "jonny@trb.org"
+
+      op.thing.must_equal thing
     end
 
     it "invalid" do
@@ -31,7 +34,7 @@ class CommentCrudTest < MiniTest::Spec
       )
 
       res.must_equal false
-      operation.contract.errors.messages.must_equal(:thing=>["can't be blank"], :"user.email"=>["can't be blank", "is invalid"] )
+      operation.errors.messages.must_equal(:thing=>["can't be blank"], :"user.email"=>["can't be blank", "is invalid"] )
     end
 
     it "invalid email, no weight" do
@@ -42,8 +45,8 @@ class CommentCrudTest < MiniTest::Spec
       )
 
       res.must_equal false
-      operation.contract.errors.messages[:"user.email"].must_equal ["is invalid"]
-      operation.contract.errors.messages[:"weight"].must_equal ["is not included in the list"]
+      operation.errors.messages[:"user.email"].must_equal ["is invalid"]
+      operation.errors.messages[:"weight"].must_equal ["is not included in the list"]
     end
 
     it "invalid body" do
@@ -54,7 +57,7 @@ class CommentCrudTest < MiniTest::Spec
       )
 
       res.must_equal false
-      operation.contract.errors.messages[:"body"].must_equal ["is too long (maximum is 160 characters)"]
+      operation.errors.messages[:"body"].must_equal ["is too long (maximum is 160 characters)"]
     end
   end
 

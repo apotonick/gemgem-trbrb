@@ -55,4 +55,14 @@ describe ThingsController do
       assert_select ".comment_user_email"
     end
   end
+
+  describe "#create_comment" do
+    it do
+      post :create_comment, id: thing.id,
+        comment: {body: "That green jacket!", weight: "1", user: {email: "seuros@trb.org"}}
+
+      assert_redirected_to thing_path(thing)
+      flash[:notice].must_equal "Created comment for \"Trailblazer\""
+    end
+  end
 end
