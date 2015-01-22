@@ -76,9 +76,9 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.4)
     execjs (2.2.2)
-    foundation-rails (5.5.0.0)
+    foundation-rails (5.4.5.0)
       railties (>= 3.1.0)
-      sass (>= 3.2.0, < 3.4)
+      sass (>= 3.2.0)
     haml (4.0.6)
       tilt
     haml-rails (0.7.0)
@@ -208,7 +208,7 @@ DEPENDENCIES
   cells!
   coffee-rails (~> 4.0.0)
   email_validator
-  foundation-rails
+  foundation-rails (= 5.4.5.0)
   haml-rails
   high_voltage
   html2haml
