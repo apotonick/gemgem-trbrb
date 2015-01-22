@@ -62,6 +62,7 @@ describe ThingsController do
         comment: {body: "That green jacket!", weight: "1", user: {email: "seuros@trb.org"}}
 
       assert_redirected_to thing_path(thing)
+      flash[:notice].must_equal "Created comment for \"Trailblazer\""
     end
   end
 end

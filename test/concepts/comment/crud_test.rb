@@ -5,14 +5,15 @@ class CommentCrudTest < MiniTest::Spec
 
   describe "Create" do
     it "persists valid" do
-      comment = Comment::Create[
+      res, op = Comment::Create.run(
         comment: {
           body:   "Fantastic!",
           weight: "1",
           user:   { email: "jonny@trb.org" }
         },
         id: thing.id
-      ].model
+      )
+      comment = op.model
 
       comment.persisted?.must_equal true
       comment.body.must_equal "Fantastic!"
@@ -20,6 +21,8 @@ class CommentCrudTest < MiniTest::Spec
 
       comment.user.persisted?.must_equal true
       comment.user.email.must_equal "jonny@trb.org"
+
+      op.thing.must_equal thing
     end
 
     it "invalid" do

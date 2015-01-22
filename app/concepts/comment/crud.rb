@@ -22,7 +22,7 @@ class Comment < ActiveRecord::Base
 
     def process(params) # or (params, env)
       validate(params[:comment]) do |f|
-        f.save # save rating and user.
+        f.save # save comment and user.
       end
     end
 
