@@ -8,17 +8,26 @@ class Comment < ActiveRecord::Base
       # include Reform::Form::Coercion
       reform_2_0!
 
-      property :endorsement, virtual: true #, type: Virtus::Attribute::Boolean
+      def self.weights
+        {"0" => "Nice!", "1" => "Rubbish!"}
+      end
+
+      def weights
+        [self.class.weights.to_a, :first, :last]
+      end
+
+
+      # property :endorsement, virtual: true #, type: Virtus::Attribute::Boolean
 
       property :body
       property :weight
       property :thing
 
       validates :body, length: { in: 6..160 }
-      validates :weight, inclusion: { in: ["0", "1"] }
+      validates :weight, inclusion: { in: weights.keys }
       validates :thing, :user, presence: true
 
-      property :user, prepopulate: ->(*) { User.new }, populate_if_empty: ->(*) { User.new } do
+      property :user do
         property :email
         validates :email, presence: true, email: true
       end
@@ -28,7 +37,7 @@ class Comment < ActiveRecord::Base
       validate(params[:comment]) do |f|
         f.save # save comment and user.
 
-        Endorsement.create(user: f.model.user, thing: f.model.thing) if f.endorsement == "1"
+        # Endorsement.create(user: f.model.user, thing: f.model.thing) if f.endorsement == "1"
       end
     end
 
@@ -38,8 +47,8 @@ class Comment < ActiveRecord::Base
 
   private
     def setup_model!(params)
-      model.thing = Thing.find_by_id(params[:id])
-      # model.build_user
+      model.thing = Thing.find_by_id(params[:thing_id])
+      model.build_user
     end
   end
 end

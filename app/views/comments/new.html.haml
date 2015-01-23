@@ -7,13 +7,12 @@
 
   %h3 Endorse this project
 
-  = f.input :endorsement, as: :boolean, wrapper_html: { class: "switch large" }
+  =# f.input :endorsement, as: :boolean, wrapper_html: { class: "switch large" }
 
   %h3 What do you think?
 
   = f.input :body, placeholder: "Your comment", label: false
-  = f.collection_radio_buttons :weight, |
-    [[1, 'Nice!'], [0, 'Rubbish!']], :first, :last
+  = f.collection_radio_buttons :weight, *@form.weights
 
   = f.fields_for :user do |u|
     = u.input :email, placeholder: "Your Email", label: false

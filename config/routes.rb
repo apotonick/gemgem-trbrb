@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   resources :things do
     resources :comments
 
-    member do
-      post :create_comment
-    end
+    # member do
+    #   post :create_comment
+    # end
   end
 
 end
