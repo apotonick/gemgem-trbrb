@@ -11,7 +11,7 @@ class CommentCrudTest < MiniTest::Spec
           weight: "1",
           user:   { email: "jonny@trb.org" }
         },
-        id: thing.id
+        thing_id: thing.id
       )
       comment = op.model
 

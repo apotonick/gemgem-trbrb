@@ -1,3 +1,12 @@
+PATH
+  remote: ../reform
+  specs:
+    reform (1.2.5)
+      activemodel
+      disposable (~> 0.0.5)
+      representable (~> 2.1.0)
+      uber (~> 0.0.11)
+
 GIT
   remote: https://github.com/apotonick/cells
   revision: 9e3c5791137011a3b30b86e1766a56bf27c4c243
@@ -7,15 +16,6 @@ GIT
       railties (>= 3.2)
       tilt (>= 1.4, < 3)
       uber (~> 0.0.9)
-
-PATH
-  remote: ../reform
-  specs:
-    reform (1.2.5)
-      activemodel
-      disposable (~> 0.0.5)
-      representable (~> 2.1.0)
-      uber (~> 0.0.11)
 
 GEM
   remote: https://rubygems.org/

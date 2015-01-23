@@ -4,11 +4,6 @@
 
 = simple_form_for [@thing, @form] do |f| # POST /things/1/comments/
 
-
-  %h3 Endorse this project
-
-  =# f.input :endorsement, as: :boolean, wrapper_html: { class: "switch large" }
-
   %h3 What do you think?
 
   = f.input :body, placeholder: "Your comment", label: false
@@ -24,5 +19,3 @@
 
 
 = @thing.comments.inspect
-
-= Endorsement.all.inspect
