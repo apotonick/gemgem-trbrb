@@ -15,19 +15,19 @@ class ThingsController < ApplicationController
 
   def show
     present Thing::Update
-    # form Comment::Create # overrides @model and @form!
+    form Comment::Create # overrides @model and @form!
     # @form.prepopulate!
   end
 
-  # def create_comment
-  #   present Thing::Update
-  #   run Comment::Create do |op| # overrides @model and @form!
-  #     flash[:notice] = "Created comment for \"#{op.thing.name}\""
-  #     return redirect_to thing_path(op.thing)
-  #   end
+  def create_comment
+    present Thing::Update
+    run Comment::Create do |op| # overrides @model and @form!
+      flash[:notice] = "Created comment for \"#{op.thing.name}\""
+      return redirect_to thing_path(op.thing)
+    end
 
-  #   render :show
-  # end
+    render :show
+  end
 
   def edit
     form Thing::Update
