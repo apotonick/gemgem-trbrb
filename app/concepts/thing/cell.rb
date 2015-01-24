@@ -1,6 +1,10 @@
 class Thing::Cell < Cell::Concept
+  include Cell::GridCell
+  self.classes = ["box", "large-3", "columns"]
+
   property :name
   property :created_at
+
 
   include ActionView::Helpers::DateHelper
   include Rails::Timeago::Helper
@@ -17,13 +21,6 @@ private
   def created_at
     timeago_tag(super)
   end
-
-  def classes
-    classes = ["box", "large-3", "columns"]
-    classes << "end" if options[:last] == model
-    classes
-  end
-
 
   # The public helper that collects latest things and renders the grid.
   class Grid < Cell::Concept

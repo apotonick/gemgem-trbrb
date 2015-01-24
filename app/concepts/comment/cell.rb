@@ -1,4 +1,7 @@
 class Comment::Cell < Cell::Concept
+  include Cell::GridCell
+  self.classes = ["comment", "large-4", "columns"]
+
   include ActionView::Helpers::DateHelper
   include Rails::Timeago::Helper
 
