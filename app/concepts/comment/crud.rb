@@ -27,6 +27,10 @@ class Comment < ActiveRecord::Base
         property :email
         validates :email, presence: true, email: true
       end
+
+      def weight
+        super or "0"
+      end
     end
 
     def process(params)
