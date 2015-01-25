@@ -10,4 +10,10 @@ class Comment::Cell < Cell::Concept
   def show
     render
   end
+
+  class Grid < Cell::Concept
+    def show
+      concept "comment/cell", collection: model.comments, last: model.comments.last
+    end
+  end
 end
