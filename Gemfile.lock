@@ -1,4 +1,13 @@
 PATH
+  remote: ../cells
+  specs:
+    cells (4.0.0.alpha1)
+      actionpack (>= 3.2)
+      disposable (~> 0.0.8)
+      tilt (>= 1.4, < 3)
+      uber (~> 0.0.9)
+
+PATH
   remote: ../reform
   specs:
     reform (1.2.5)
@@ -8,14 +17,12 @@ PATH
       uber (~> 0.0.11)
 
 GIT
-  remote: https://github.com/apotonick/cells
-  revision: 9e3c5791137011a3b30b86e1766a56bf27c4c243
+  remote: https://github.com/trailblazer/cells-haml
+  revision: 6e3b994678ab0b62869c81efccdfd283572f9ae9
   specs:
-    cells (4.0.0.alpha1)
-      actionpack (>= 3.2)
-      railties (>= 3.2)
-      tilt (>= 1.4, < 3)
-      uber (~> 0.0.9)
+    cells-haml (0.0.1)
+      cells (~> 4.0.0.alpha)
+      haml (~> 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -100,6 +107,12 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.2)
+    kaminari (0.16.2)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+    kaminari-cells (0.0.3)
+      cells
+      kaminari (>= 0.16.0)
     libv8 (3.16.14.7)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
@@ -206,6 +219,7 @@ PLATFORMS
 DEPENDENCIES
   binding_of_caller
   cells!
+  cells-haml!
   coffee-rails (~> 4.0.0)
   email_validator
   foundation-rails (= 5.4.5.0)
@@ -213,6 +227,7 @@ DEPENDENCIES
   high_voltage
   html2haml
   jquery-rails
+  kaminari-cells
   minitest-spec-rails
   pg
   quiet_assets

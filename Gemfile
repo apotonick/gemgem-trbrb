@@ -38,8 +38,10 @@ gem "virtus"
 # gem "trailblazer", git: "https://github.com/apotonick/trailblazer.git"
 # gem "trailblazer", path: "../trailblazer"
 gem "trailblazer", "0.2.2"
-gem "cells", git: "https://github.com/apotonick/cells"
-# gem "cells", path: "../cells"
+# gem "cells", git: "https://github.com/apotonick/cells"
+gem "cells", path: "../cells"
+gem "cells-haml", git: "https://github.com/trailblazer/cells-haml"
+gem "kaminari-cells"
 
 gem "roar", "1.0.0"
 
