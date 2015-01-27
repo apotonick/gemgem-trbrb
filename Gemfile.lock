@@ -1,3 +1,20 @@
+GIT
+  remote: https://github.com/apotonick/kaminari-cells
+  revision: 793376eee18f6bf904a2db6627b7ec1e6d4a00b8
+  branch: cells-4
+  specs:
+    kaminari-cells (0.0.3)
+      cells (>= 4.0.0.alpha1, <= 5.0.0)
+      kaminari (>= 0.16.0)
+
+GIT
+  remote: https://github.com/trailblazer/cells-haml
+  revision: 6e3b994678ab0b62869c81efccdfd283572f9ae9
+  specs:
+    cells-haml (0.0.1)
+      cells (~> 4.0.0.alpha)
+      haml (~> 4.0)
+
 PATH
   remote: ../cells
   specs:
@@ -15,14 +32,6 @@ PATH
       disposable (~> 0.0.5)
       representable (~> 2.1.0)
       uber (~> 0.0.11)
-
-GIT
-  remote: https://github.com/trailblazer/cells-haml
-  revision: 6e3b994678ab0b62869c81efccdfd283572f9ae9
-  specs:
-    cells-haml (0.0.1)
-      cells (~> 4.0.0.alpha)
-      haml (~> 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -83,6 +92,9 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.4)
     execjs (2.2.2)
+    foundation-icons-sass-rails (3.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     foundation-rails (5.4.5.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
@@ -110,9 +122,6 @@ GEM
     kaminari (0.16.2)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    kaminari-cells (0.0.3)
-      cells
-      kaminari (>= 0.16.0)
     libv8 (3.16.14.7)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
@@ -222,12 +231,13 @@ DEPENDENCIES
   cells-haml!
   coffee-rails (~> 4.0.0)
   email_validator
+  foundation-icons-sass-rails
   foundation-rails (= 5.4.5.0)
   haml-rails
   high_voltage
   html2haml
   jquery-rails
-  kaminari-cells
+  kaminari-cells!
   minitest-spec-rails
   pg
   quiet_assets

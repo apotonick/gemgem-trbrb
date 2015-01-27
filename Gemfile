@@ -41,9 +41,11 @@ gem "trailblazer", "0.2.2"
 # gem "cells", git: "https://github.com/apotonick/cells"
 gem "cells", path: "../cells"
 gem "cells-haml", git: "https://github.com/trailblazer/cells-haml"
-gem "kaminari-cells"
+gem "kaminari-cells", git: "https://github.com/apotonick/kaminari-cells", branch: "cells-4"
 
 gem "roar", "1.0.0"
 
 gem "rails-timeago"
 gem "email_validator"
+
+gem "foundation-icons-sass-rails"

@@ -6,13 +6,15 @@ class Comment::Cell < Cell::Concept
   self.classes = ["comment", "large-4", "columns"]
 
   include Cell::CreatedAt
-  include Kaminari::Cells
+
 
   def show
     render
   end
 
   class Grid < Cell::Concept
+    include Kaminari::Cells
+
     def show
 
       concept( "comment/cell", paginated_options) + paginate(paginated_options[:collection])
