@@ -1,5 +1,7 @@
 = container do
   .header
+    - if model.weight == 0 # TODO:
+      <i class="fi-heart"></i>
     = model.user.email
     = link_to created_at, "#comment-#{model.id}"
   = body
