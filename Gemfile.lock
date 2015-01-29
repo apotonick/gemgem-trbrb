@@ -27,7 +27,7 @@ PATH
 PATH
   remote: ../reform
   specs:
-    reform (1.2.5)
+    reform (1.2.6)
       activemodel
       disposable (~> 0.0.5)
       representable (~> 2.1.0)
