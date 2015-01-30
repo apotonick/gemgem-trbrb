@@ -20,10 +20,10 @@
   = f.button :submit, class: :expand
 
 
-= @form.errors.messages
+=# @form.errors.messages
 
 
 
-Comments: #{@thing.comments.size}
+%h3 #{@thing.comments.size} comments
 
 = concept "comment/cell/grid", @thing
