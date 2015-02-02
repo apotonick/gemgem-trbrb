@@ -1,11 +1,6 @@
 require 'test_helper'
 
 class CommentCellTest < Cell::TestCase
-  # test "show" do
-  #   invoke :show
-  #   assert_select 'p'
-  # end
-
   def controller
     controller = ThingsController.new
     controller.request = ActionController::TestRequest.new
@@ -56,7 +51,7 @@ class CommentCellTest < Cell::TestCase
     third[:class].must_match /\send/ # last grid item.
 
     # "More!"
-    html.must_have_selector("#next")
+    html.find("#next a")["href"].must_equal "/things/#{thing.id}/next_comments?page=2"
   end
 
   # .(:append)
