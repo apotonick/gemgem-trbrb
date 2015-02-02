@@ -23,7 +23,7 @@ group :development, :test do
   gem "sqlite3"
   gem "minitest-spec-rails"
   # gem "minitest-rails-capybara"
-  # gem "capybara_minitest_spec"
+  gem "capybara_minitest_spec"
 end
 group :production do
   gem "pg"
