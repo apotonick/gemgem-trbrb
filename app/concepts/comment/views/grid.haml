@@ -3,4 +3,4 @@
 
   - unless comments.last_page?
     #next
-      = link_to "More!", next_comments_thing_path(id: @model.id, page: comments.next_page), class: "button expand light", remote: true
+      = link_to "More!", next_comments_thing_path(id: model.id, page: comments.next_page), class: "button expand light", remote: true
