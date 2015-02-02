@@ -11,7 +11,7 @@ class CommentCrudTest < MiniTest::Spec
           weight: "1",
           user:   { email: "jonny@trb.org" }
         },
-        thing_id: thing.id
+        id: thing.id
       )
       comment = op.model
 
@@ -37,10 +37,11 @@ class CommentCrudTest < MiniTest::Spec
       operation.errors.messages.must_equal(:thing=>["can't be blank"], :"user.email"=>["can't be blank", "is invalid"] )
     end
 
-    it "invalid email, no weight" do
+    it "invalid email, wrong weight" do
       res, operation = Comment::Create.run(
         comment: {
-          user:   { email: "1337@" }
+          user:   { email: "1337@" },
+          weight: 3
         }
       )
 
