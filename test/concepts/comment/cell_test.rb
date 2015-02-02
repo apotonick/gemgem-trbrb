@@ -9,11 +9,6 @@ class CommentCellTest < Cell::TestCase
   def controller
     controller = ThingsController.new
     controller.request = ActionController::TestRequest.new
-    controller.instance_exec do
-      # def url_options
-      #   {}
-      # end
-    end
     controller.instance_variable_set :@routes, Rails.application.routes.url_helpers
     controller
   end
@@ -30,6 +25,7 @@ class CommentCellTest < Cell::TestCase
   end
 
   # the comment grid.
+  # .(:show)
   it do
     html = concept("comment/cell/grid", thing).(:show)
     # puts html
@@ -61,5 +57,13 @@ class CommentCellTest < Cell::TestCase
 
     # "More!"
     html.must_have_selector("#next")
+  end
+
+  # .(:append)
+  it do
+    html = concept("comment/cell/grid", thing, page: 2).(:append)
+
+    html.must_match /replaceWith/
+    html.must_match /zavan@trb.org/
   end
 end
