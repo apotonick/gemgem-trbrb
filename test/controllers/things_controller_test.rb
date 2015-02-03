@@ -69,6 +69,13 @@ describe ThingsController do
   end
 
   describe "#create_comment" do
+    it "invalid" do
+      post :create_comment, id: thing.id,
+        comment: {body: "invalid!"}
+
+      assert_select ".comment_user_email.error"
+    end
+
     it do
       post :create_comment, id: thing.id,
         comment: {body: "That green jacket!", weight: "1", user: {email: "seuros@trb.org"}}
