@@ -20,9 +20,10 @@
   = f.button :submit, class: :expand
 
 
-= @form.errors.messages
+=# @form.errors.messages
 
 
 
-Comments: #{@thing.comments.size}
-= concept "comment/cell", collection: @thing.comments, last: @thing.comments.last
+%h3 #{@thing.comments.size} comments
+
+= concept "comment/cell/grid", @thing

@@ -7,7 +7,7 @@ class ThingConceptTest < Cell::TestCase
   # end
 
   test '' do
-    cell("thing/cell")
+    concept("thing/cell")
   end
 
 end

@@ -23,7 +23,7 @@ group :development, :test do
   gem "sqlite3"
   gem "minitest-spec-rails"
   # gem "minitest-rails-capybara"
-  # gem "capybara_minitest_spec"
+  gem "capybara_minitest_spec"
 end
 group :production do
   gem "pg"
@@ -38,10 +38,15 @@ gem "virtus"
 # gem "trailblazer", git: "https://github.com/apotonick/trailblazer.git"
 # gem "trailblazer", path: "../trailblazer"
 gem "trailblazer", "0.2.2"
-gem "cells", git: "https://github.com/apotonick/cells"
+# gem "cells", git: "https://github.com/apotonick/cells"
 # gem "cells", path: "../cells"
+gem "cells", "4.0.0.beta2"
+gem "cells-haml", git: "https://github.com/trailblazer/cells-haml"
+gem "kaminari-cells", git: "https://github.com/apotonick/kaminari-cells", branch: "cells-4"
 
 gem "roar", "1.0.0"
 
 gem "rails-timeago"
 gem "email_validator"
+
+gem "foundation-icons-sass-rails"
