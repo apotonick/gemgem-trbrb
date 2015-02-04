@@ -25,3 +25,6 @@ module RailsFoundation
 
   end
 end
+
+# railties have to be loaded here.
+require 'trailblazer/rails/railtie'

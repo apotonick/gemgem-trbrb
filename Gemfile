@@ -6,7 +6,7 @@ gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.0.0"
 gem "jquery-rails"
 gem "spring",        group: :development
-gem "foundation-rails"
+gem "foundation-rails", "5.4.5.0"
 gem "haml-rails"
 gem "high_voltage"
 gem "simple_form"
@@ -31,15 +31,17 @@ group :production do
 end
 
 # gem "representable"
-gem "reform", "1.2.4" #path: "../reform" # git: "https://github.com/apotonick/reform.git"
+# gem "reform", "1.2.4" # git: "https://github.com/apotonick/reform.git"
+gem "reform", path: "../reform"
+gem "virtus"
 
-gem "trailblazer", git: "https://github.com/apotonick/trailblazer.git"
+# gem "trailblazer", git: "https://github.com/apotonick/trailblazer.git"
 # gem "trailblazer", path: "../trailblazer"
-#gem "trailblazer", "0.1.2"
+gem "trailblazer", "0.2.2"
 gem "cells", git: "https://github.com/apotonick/cells"
 # gem "cells", path: "../cells"
 
-gem "roar", "1.0.0.beta2"
+gem "roar", "1.0.0"
 
 gem "rails-timeago"
 gem "email_validator"

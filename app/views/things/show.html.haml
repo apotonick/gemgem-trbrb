@@ -7,13 +7,22 @@
 
 %hr
 
-= simple_form_for [@thing, @form] do |f| # POST /ratings/
+= simple_form_for @form, url: create_comment_thing_path(@thing) do |f|
+
+  %h3 What do you think?
+
   = f.input :body, placeholder: "Your comment", label: false
-  = f.collection_radio_buttons :weight, [[1, 'Nice!'] ,[0, 'Rubbish!']], :first, :last
+  = f.collection_radio_buttons :weight, *@form.weights
 
   = f.fields_for :user do |u|
     = u.input :email, placeholder: "Your Email", label: false
 
   = f.button :submit, class: :expand
 
+
 = @form.errors.messages
+
+
+
+Comments: #{@thing.comments.size}
+= concept "comment/cell", collection: @thing.comments, last: @thing.comments.last

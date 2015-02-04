@@ -48,6 +48,21 @@ describe ThingsController do
     it "HTML" do
       get :show, id: thing.id
       response.body.must_match /Trailblazer/
+
+       # the form. this assures the model_name is properly set.
+      assert_select "input.button[value=?]", "Create Comment"
+      # make sure the user form is displayed.
+      assert_select ".comment_user_email"
+    end
+  end
+
+  describe "#create_comment" do
+    it do
+      post :create_comment, id: thing.id,
+        comment: {body: "That green jacket!", weight: "1", user: {email: "seuros@trb.org"}}
+
+      assert_redirected_to thing_path(thing)
+      flash[:notice].must_equal "Created comment for \"Trailblazer\""
     end
   end
 end
