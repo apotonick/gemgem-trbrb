@@ -16,15 +16,6 @@ GIT
       haml (~> 4.0)
 
 PATH
-  remote: ../cells
-  specs:
-    cells (4.0.0.alpha1)
-      actionpack (>= 3.2)
-      disposable (~> 0.0.8)
-      tilt (>= 1.4, < 3)
-      uber (~> 0.0.9)
-
-PATH
   remote: ../reform
   specs:
     reform (1.2.6)
@@ -79,6 +70,11 @@ GEM
     capybara_minitest_spec (1.0.5)
       capybara (>= 2)
       minitest (>= 4)
+    cells (4.0.0.beta2)
+      actionpack (>= 3.2)
+      disposable (~> 0.0.8)
+      tilt (>= 1.4, < 3)
+      uber (~> 0.0.9)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (4.0.1)
@@ -239,7 +235,7 @@ PLATFORMS
 DEPENDENCIES
   binding_of_caller
   capybara_minitest_spec
-  cells!
+  cells (= 4.0.0.beta2)
   cells-haml!
   coffee-rails (~> 4.0.0)
   email_validator

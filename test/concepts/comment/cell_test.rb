@@ -1,12 +1,7 @@
 require 'test_helper'
 
 class CommentCellTest < Cell::TestCase
-  def controller
-    controller = ThingsController.new
-    controller.request = ActionController::TestRequest.new
-    controller.instance_variable_set :@routes, Rails.application.routes.url_helpers
-    controller
-  end
+  controller ThingsController
 
   let (:thing) do
     thing = Thing::Create[thing: {name: "Rails"}].model
