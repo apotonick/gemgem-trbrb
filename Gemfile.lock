@@ -15,15 +15,6 @@ GIT
       cells (~> 4.0.0.alpha)
       haml (~> 4.0)
 
-PATH
-  remote: ../reform
-  specs:
-    reform (1.2.6)
-      activemodel
-      disposable (~> 0.0.5)
-      representable (~> 2.1.0)
-      uber (~> 0.0.11)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -137,7 +128,7 @@ GEM
       minitest (~> 5.0)
       rails (~> 4.1)
     multi_json (1.10.1)
-    nokogiri (1.6.6.1)
+    nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     pg (0.18.1)
     quiet_assets (1.1.0)
@@ -171,7 +162,12 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     ref (1.0.5)
-    representable (2.1.4)
+    reform (1.2.6)
+      activemodel
+      disposable (~> 0.0.5)
+      representable (~> 2.1.0)
+      uber (~> 0.0.11)
+    representable (2.1.5)
       multi_json
       nokogiri
       uber (~> 0.0.7)
@@ -253,7 +249,7 @@ DEPENDENCIES
   rails-timeago
   rails_12factor
   rails_layout
-  reform!
+  reform (= 1.2.6)
   roar (= 1.0.0)
   sass-rails (~> 4.0.3)
   simple_form
