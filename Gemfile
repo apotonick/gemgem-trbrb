@@ -31,8 +31,8 @@ group :production do
 end
 
 # gem "representable"
-# gem "reform", "1.2.4" # git: "https://github.com/apotonick/reform.git"
-gem "reform", path: "../reform"
+gem "reform", "1.2.6" # git: "https://github.com/apotonick/reform.git"
+
 gem "virtus"
 
 # gem "trailblazer", git: "https://github.com/apotonick/trailblazer.git"
