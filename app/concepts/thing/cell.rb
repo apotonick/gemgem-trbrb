@@ -2,8 +2,7 @@ class Thing::Cell < Cell::Concept
   property :name
   property :created_at
 
-  include ActionView::Helpers::DateHelper
-  include Rails::Timeago::Helper
+  include Gemgem::Cell::CreatedAt
 
   def show
     render
@@ -12,10 +11,6 @@ class Thing::Cell < Cell::Concept
 private
   def name_link
     link_to name, thing_path(model)
-  end
-
-  def created_at
-    timeago_tag(super)
   end
 
   def classes
