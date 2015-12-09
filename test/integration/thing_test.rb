@@ -8,9 +8,14 @@ class ThingIntegrationTest < Trailblazer::Test::Integration
     page.must_have_css "form #thing_name"
     page.wont_have_css "form #thing_name.readonly"
 
+    # 3 author email fields
+    page.must_have_css("input.email", count: 3) # TODO: how can i say "no value"?
+
     # invalid.
     click_button "Create Thing"
     page.must_have_css ".error"
+    # 3 author email fields
+    page.must_have_css("input.email", count: 3)
 
     # correct submit.
     fill_in 'Name', with: "Rails"

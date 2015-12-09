@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150122004427) do
 
-  create_table "comments", force: true do |t|
+  create_table "comments", force: :cascade do |t|
     t.text     "body"
     t.integer  "weight"
     t.integer  "deleted"
@@ -23,14 +23,14 @@ ActiveRecord::Schema.define(version: 20150122004427) do
     t.datetime "updated_at"
   end
 
-  create_table "endorsements", force: true do |t|
+  create_table "endorsements", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "thing_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "things", force: true do |t|
+  create_table "things", force: :cascade do |t|
     t.text     "name"
     t.text     "description"
     t.text     "image_meta_data"
@@ -38,12 +38,12 @@ ActiveRecord::Schema.define(version: 20150122004427) do
     t.datetime "updated_at"
   end
 
-  create_table "things_users", id: false, force: true do |t|
+  create_table "things_users", id: false, force: :cascade do |t|
     t.integer "thing_id", null: false
     t.integer "user_id",  null: false
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
     t.string   "confirmation_token"
