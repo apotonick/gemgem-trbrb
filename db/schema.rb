@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150122004427) do
   create_table "authorships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "thing_id"
+    t.integer  "confirmed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
