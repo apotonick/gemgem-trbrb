@@ -10,7 +10,7 @@ namespace :test do
   desc "Test concepts"
   Rake::TestTask.new(:concepts) do |t|
     t.libs << "test"
-    t.pattern = 'test/concepts/**/*_test.rb'
+    t.pattern = 'test/**/*_test.rb'
     t.verbose = true
   end
 
