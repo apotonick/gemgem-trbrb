@@ -1,3 +1,5 @@
+require "test_helper"
+
 class ThingIntegrationTest < Trailblazer::Test::Integration
   it "allows anonymous" do
     visit "/things/new"
@@ -13,7 +15,10 @@ class ThingIntegrationTest < Trailblazer::Test::Integration
     # correct submit.
     fill_in 'Name', with: "Rails"
     click_button "Create Thing"
+
+    # show
     page.current_path.must_equal thing_path(Thing.last)
+    page.body.must_match /Rails/
 
     # edit
     thing = Thing.last
