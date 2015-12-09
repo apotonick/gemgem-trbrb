@@ -13,22 +13,6 @@ class ThingsController < ApplicationController
     render action: :new
   end
 
-  def show
-    present Thing::Update
-    form Comment::Create # overrides @model and @form!
-    # @form.prepopulate!
-  end
-
-  def create_comment
-    present Thing::Update
-    run Comment::Create do |op| # overrides @model and @form!
-      flash[:notice] = "Created comment for \"#{op.thing.name}\""
-      return redirect_to thing_path(op.thing)
-    end
-
-    render :show
-  end
-
   def edit
     form Thing::Update
 
@@ -41,11 +25,5 @@ class ThingsController < ApplicationController
     end
 
     render action: :new
-  end
-
-  def next_comments
-    present Thing::Update
-
-    render js: concept("comment/cell/grid", @thing, page: params[:page]).(:append)
   end
 end

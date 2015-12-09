@@ -1,9 +1,9 @@
 require 'test_helper'
 
-class ThingCrudTest < MiniTest::Spec
+class ThingOperationTest < MiniTest::Spec
   describe "Create" do
     it "persists valid" do
-      thing = Thing::Create[thing: {name: "Rails", description: "Kickass web dev"}].model
+      thing = Thing::Create.(thing: {name: "Rails", description: "Kickass web dev"}).model
 
       thing.persisted?.must_equal true
       thing.name.must_equal "Rails"
@@ -27,12 +27,12 @@ class ThingCrudTest < MiniTest::Spec
   end
 
   describe "Update" do
-    let (:thing) { Thing::Create[thing: {name: "Rails", description: "Kickass web dev"}].model }
+    let (:thing) { Thing::Create.(thing: {name: "Rails", description: "Kickass web dev"}).model }
 
     it "persists valid, ignores name" do
-      Thing::Update[
+      Thing::Update.()
         id:     thing.id,
-        thing: {name: "Lotus", description: "MVC, well.."}].model
+        thing: {name: "Lotus", description: "MVC, well.."}).model
 
       thing.reload
       thing.name.must_equal "Rails"
