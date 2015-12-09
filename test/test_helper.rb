@@ -15,3 +15,8 @@ Minitest::Spec.class_eval do
     # User.delete_all
   end
 end
+
+Cell::TestCase.class_eval do
+  include Capybara::DSL
+  include Capybara::Assertions
+end
