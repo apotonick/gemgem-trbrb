@@ -19,6 +19,10 @@ class ThingIntegrationTest < Trailblazer::Test::Integration
     # show
     page.current_path.must_equal thing_path(Thing.last)
     page.body.must_match /Rails/
+    # comment form in show
+    page.must_have_css "input.button[value='Create Comment']"
+    page.must_have_css ".comment_user_email"
+    page.must_have_css ".comments" # grid.
 
     # edit
     thing = Thing.last
