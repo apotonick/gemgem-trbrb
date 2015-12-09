@@ -84,7 +84,7 @@ class ThingOperationTest < MiniTest::Spec
   end
 
   describe "Update" do
-    let (:thing) { Thing::Create.(thing: {name: "Rails", description: "Kickass web dev"}).model }
+    let (:thing) { Thing::Create[thing: {name: "Rails", description: "Kickass web dev", "users"=>[{"email"=>"solnic@trb.org"}]}].model }
 
     it "rendering" do # DISCUSS: not sure if that will stay here, but i like the idea of presentation/logic in one place.
       form = Thing::Update.present({id: thing.id}).contract
@@ -109,7 +109,7 @@ class ThingOperationTest < MiniTest::Spec
 
     it "valid, new and existing email" do
       solnic = thing.users[0]
-      model  = Thing::Update.(:id=>thing.id, :thing => {"users" => [{"id"=>solnic.id, "email"=>"solnicXXXX@trb.org"}, {"email"=>"nick@trb.org"}]}).model
+      model  = Thing::Update.(id: thing.id, thing: {"users" => [{"id"=>solnic.id, "email"=>"solnicXXXX@trb.org"}, {"email"=>"nick@trb.org"}]}).model
 
       model.users.size.must_equal 2
       model.users[0].attributes.slice("id", "email").must_equal("id"=>solnic.id, "email"=>"solnic@trb.org") # existing user, nothing changed.

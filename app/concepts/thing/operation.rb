@@ -38,8 +38,8 @@ class Thing < ActiveRecord::Base
         (3 - users.size).times { users << User.new }
       end
 
-      def populate_users!(params, options)
-        User.find_by_email(params["email"]) or User.new
+      def populate_users!(fragment:, **)
+        User.find_by_email(fragment["email"]) or User.new
       end
     end
 
@@ -86,3 +86,14 @@ class Thing < ActiveRecord::Base
     end
   end
 end
+
+# (fragment:, collection:, index:, **) {
+#             user = users.find { |u| u.id.to_s == fragment["id"].to_s }
+
+#             if fragment["remove"].to_s == "1" and users.delete(user)
+#               return Representable::Pipeline::Stop
+#             end
+
+#             return Representable::Pipeline::Stop if collection[index] # populate-if_empty
+
+#             users.insert(index, User.new)

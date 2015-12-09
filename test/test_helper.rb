@@ -11,8 +11,8 @@ Minitest::Spec.class_eval do
   after :each do
     # DatabaseCleaner.clean
     Thing.delete_all
-    # Comment.delete_all
-    # User.delete_all
+    Comment.delete_all
+    User.delete_all
   end
 end
 
