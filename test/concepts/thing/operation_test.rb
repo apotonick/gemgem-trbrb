@@ -30,7 +30,7 @@ class ThingOperationTest < MiniTest::Spec
     let (:thing) { Thing::Create.(thing: {name: "Rails", description: "Kickass web dev"}).model }
 
     it "persists valid, ignores name" do
-      Thing::Update.()
+      Thing::Update.(
         id:     thing.id,
         thing: {name: "Lotus", description: "MVC, well.."}).model
 

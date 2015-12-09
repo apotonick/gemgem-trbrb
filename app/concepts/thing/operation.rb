@@ -1,6 +1,6 @@
 class Thing < ActiveRecord::Base
   class Create < Trailblazer::Operation
-    include CRUD
+    include Model
     model Thing, :create
 
     contract do

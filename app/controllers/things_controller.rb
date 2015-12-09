@@ -26,4 +26,8 @@ class ThingsController < ApplicationController
 
     render action: :new
   end
+
+  def show
+    present Thing::Update
+  end
 end
