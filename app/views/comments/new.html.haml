@@ -1,0 +1,20 @@
+.header
+  %h1
+    - ##{@thing.name}
+
+= simple_form_for [@thing, @form] do |f| # POST /things/1/comments/
+  %h3 What do you think?
+
+  = f.input :body, placeholder: "Your comment", label: false
+  = f.collection_radio_buttons :weight, *@form.weights
+
+  = f.fields_for :user do |u|
+    = u.input :email, placeholder: "Your Email", label: false
+
+  = f.button :submit, class: :expand
+
+= @form.errors.messages
+
+
+
+= @thing.comments.inspect
