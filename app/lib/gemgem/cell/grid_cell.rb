@@ -1,4 +1,4 @@
-module Cell
+module Gemgem::Cell
   # adds #classes helper that will add a .last class when model and :last option match.
   # Requires you to set class attribute +classes+.
   #

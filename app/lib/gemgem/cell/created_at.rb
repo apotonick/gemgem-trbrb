@@ -1,4 +1,4 @@
-module Cell
+module Gemgem::Cell
   module CreatedAt
     def self.included(base)
       base.send :include, ActionView::Helpers::DateHelper

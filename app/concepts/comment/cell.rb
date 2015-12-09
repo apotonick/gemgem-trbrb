@@ -3,10 +3,10 @@ class Comment::Cell < Cell::Concept
   property :body
   property :user
 
-  include Cell::GridCell
+  include Gemgem::Cell::GridCell
   self.classes = ["comment", "large-4", "columns"]
 
-  include Cell::CreatedAt
+  include Gemgem::Cell::CreatedAt
 
   def show
     render
