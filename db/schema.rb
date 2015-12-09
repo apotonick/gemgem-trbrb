@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20150122004427) do
     t.datetime "updated_at"
   end
 
-  create_table "endorsements", force: :cascade do |t|
+  create_table "authorships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "thing_id"
     t.datetime "created_at"
