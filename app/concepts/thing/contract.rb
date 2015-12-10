@@ -1,5 +1,7 @@
 module Thing::Contract
   class Create < Reform::Form
+    model Thing
+
     property :name
     property :description
 
@@ -43,7 +45,7 @@ module Thing::Contract
     property :name, writeable: false
 
     # DISCUSS: should inherit: true be default?
-    collection :users, inherit: true, skip_if: :skip_user? do
+    collection :users, inherit: true, populator: :user! do
       property :email, skip_if: :skip_email?
 
       def skip_email?(fragment, options)
@@ -52,15 +54,18 @@ module Thing::Contract
     end
 
   private
-    def skip_user?(fragment, options)
+    def user!(fragment:, index:, **)
       # don't process if it's getting removed!
-      return true if fragment["remove"] == "1" and users.delete(users.find { |u| u.id.to_s == fragment["id"] })
+      if fragment["remove"] == "1"
+        deserialized_user = users.find { |u| u.id.to_s == fragment["id"] }
+        users.delete(deserialized_user)
+        return Representable::Pipeline::Stop
+      end
 
-      # skip when user is an existing one.
-      # return true if users[index] and users[index].model.persisted?
+      # skip if already existing
+      return Representable::Pipeline::Stop if users[index]
 
-      # replicate skip_if: :all_blank logic.
-      return true if fragment["email"].blank?
+      users.insert(index, User.new)
     end
   end
 end

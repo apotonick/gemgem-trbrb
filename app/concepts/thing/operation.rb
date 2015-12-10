@@ -25,14 +25,3 @@ class Thing < ActiveRecord::Base
     contract Contract::Update
   end
 end
-
-# (fragment:, collection:, index:, **) {
-#             user = users.find { |u| u.id.to_s == fragment["id"].to_s }
-
-#             if fragment["remove"].to_s == "1" and users.delete(user)
-#               return Representable::Pipeline::Stop
-#             end
-
-#             return Representable::Pipeline::Stop if collection[index] # populate-if_empty
-
-#             users.insert(index, User.new)
