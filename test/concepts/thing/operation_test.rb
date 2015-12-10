@@ -16,6 +16,7 @@ class ThingOperationTest < MiniTest::Spec
       res.must_equal false
       op.errors.to_s.must_equal "{:name=>[\"can't be blank\"]}"
       op.model.persisted?.must_equal false
+      op.invocations[:default].must_equal nil
     end
 
     it "invalid description" do
@@ -62,6 +63,8 @@ class ThingOperationTest < MiniTest::Spec
 
       # authorship is not confirmed, yet.
       model.authorships.pluck(:confirmed).must_equal [0, 0]
+      # callbacks invoked.
+      op.invocations[:default].invocations[0].must_equal [:on_add, :notify_author!, [op.contract.users[0], op.contract.users[1]]]
     end
 
     # too many users
@@ -80,6 +83,31 @@ class ThingOperationTest < MiniTest::Spec
 
       res.must_equal false
       op.errors.to_s.must_equal "{:\"users.user\"=>[\"This user has too many unconfirmed authorships.\"]}"
+    end
+
+    describe "upload" do
+      # valid file upload.
+      it "valid upload" do
+        thing = Thing::Create.(thing: {name: "Rails",
+          file: File.open("test/images/cells.jpg")}).model
+
+        Paperdragon::Attachment.new(thing.image_meta_data).exists?.must_equal true
+      end
+
+      it "hack" do
+        thing = Thing::Create.(thing: {name: "Rails",
+          image_meta_data: {bla: 1}}).model
+        thing.image_meta_data.must_equal nil
+      end
+
+      # invalid file upload.
+      it "invalid upload" do
+        res, op = Thing::Create.run(thing: {name: "Rails",
+          file: File.open("test/images/hack.pdf")})
+
+        res.must_equal false
+        op.errors.to_s.must_equal "{:file=>[\"file has an extension that does not match its contents\", \"file should be one of image/jpeg, image/png\"]}"
+      end
     end
   end
 
