@@ -4,4 +4,6 @@ class Thing < ActiveRecord::Base
   has_many :authorships
 
   scope :latest, lambda { all.limit(9).order("id DESC") }
+
+  serialize :image_meta_data
 end

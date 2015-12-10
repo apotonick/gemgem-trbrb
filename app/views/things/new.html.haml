@@ -4,7 +4,7 @@
   - # TODO: can anyone please make things work with simple_form so we don't have to specify label: false, etc. everywhere?
   = f.input :name, placeholder: "Name", label: false, readonly: @form.readonly?(:name)
   = f.input :description, placeholder: "Description", label: false
-
+  = f.input :file, as: :file
 
   %fieldset
     %legend Do you know any authors?

@@ -5,11 +5,15 @@ class Thing < ActiveRecord::Base
 
     contract Contract::Create
 
+    include Dispatch # TODO: in initializer.
+    callback
+
     def process(params)
       validate(params[:thing]) do |f|
+        upload_image!(f) if f.changed?(:file)
         f.save
 
-        reset_authorships!
+        dispatch!
       end
     end
 
