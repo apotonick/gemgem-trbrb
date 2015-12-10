@@ -33,5 +33,22 @@ class ThingIntegrationTest < Trailblazer::Test::Integration
     thing = Thing.last
     visit "/things/#{thing.id}/edit"
     page.must_have_css "form #thing_name.readonly[value='Rails']"
+
+  end
+
+  it "edit form shows readonly author" do
+    thing = Thing::Create.(thing:
+      {"name" => "Rails", "users" => [{"email" => "joe@trb.org"}]}).model
+
+    visit "/things/#{thing.id}/edit"
+    page.must_have_css "form #thing_name.readonly[value='Rails']"
+    # existing email is readonly.
+    page.must_have_css "#thing_users_attributes_0_email.readonly[value='joe@trb.org']"
+    # remove button for existing.
+    page.must_have_css "#thing_users_attributes_0_remove"
+    # empty email for new.
+    page.must_have_css "#thing_users_attributes_1_email"
+    # no remove for new.
+    page.wont_have_css "#thing_users_attributes_1_remove"
   end
 end

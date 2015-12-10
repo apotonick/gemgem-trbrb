@@ -13,7 +13,7 @@
         = a.input :email, readonly: a.object.readonly?
 
         -if a.object.removeable?
-          = a.input :remove, as: :boolean, inline_label: true, input_html: {checked: false}
+          = a.input :remove, as: :boolean, inline_label: true, input_html: { checked: false }
 
   = f.button :submit, class: :expand
 
