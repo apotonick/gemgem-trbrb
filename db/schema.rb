@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122004427) do
+ActiveRecord::Schema.define(version: 20151210060505) do
+
+  create_table "authorships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "thing_id"
+    t.integer  "confirmed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cache_versions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cache_versions", ["name"], name: "index_cache_versions_on_name", unique: true
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -19,14 +35,6 @@ ActiveRecord::Schema.define(version: 20150122004427) do
     t.integer  "deleted"
     t.integer  "thing_id"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "authorships", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "thing_id"
-    t.integer  "confirmed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

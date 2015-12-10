@@ -55,7 +55,8 @@ class ThingOperationTest < MiniTest::Spec
       solnic = User.create(email: "solnic@trb.org") # TODO: replace with operation, once we got one.
       User.count.must_equal 1
 
-      model = Thing::Create.(thing: {name: "Rails", users: [{"email"=>"solnic@trb.org"}, {"email"=>"nick@trb.org"}]}).model
+      op = Thing::Create.(thing: {name: "Rails", users: [{"email"=>"solnic@trb.org"}, {"email"=>"nick@trb.org"}]})
+      model = op.model
 
       model.users.size.must_equal 2
       model.users[0].attributes.slice("id", "email").must_equal("id"=>solnic.id, "email"=>"solnic@trb.org") # existing user attached to thing.

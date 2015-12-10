@@ -1,5 +1,6 @@
 class Thing::Cell < Cell::Concept
   property :name
+  property :description
   property :created_at
 
   include Gemgem::Cell::CreatedAt

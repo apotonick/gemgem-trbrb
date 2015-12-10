@@ -6,14 +6,16 @@ class Thing < ActiveRecord::Base
     contract Contract::Create
 
     include Dispatch # TODO: in initializer.
-    callback
+    callback :default, Callback::Default
+    callback :upload, Callback::Upload
 
     def process(params)
       validate(params[:thing]) do |f|
-        upload_image!(f) if f.changed?(:file)
+        dispatch!(:upload, context: nil, operation: self)
+        # upload_image!(f) if f.changed?(:file)
         f.save
 
-        dispatch!
+        dispatch!(:default, context: nil, operation: self)
       end
     end
 
