@@ -11,11 +11,11 @@ class Thing < ActiveRecord::Base
 
     def process(params)
       validate(params[:thing]) do |f|
-        dispatch!(:upload, context: nil, operation: self)
+        dispatch!(:upload)
         # upload_image!(f) if f.changed?(:file)
         f.save
 
-        dispatch!(:default, context: nil, operation: self)
+        dispatch!
       end
     end
 
