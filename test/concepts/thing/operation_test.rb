@@ -113,7 +113,7 @@ class ThingOperationTest < MiniTest::Spec
   end
 
   describe "Update" do
-    let (:thing) { Thing::Create[thing: {name: "Rails", description: "Kickass web dev", "users"=>[{"email"=>"solnic@trb.org"}]}].model }
+    let (:thing) { Thing::Create.(thing: {name: "Rails", description: "Kickass web dev", "users"=>[{"email"=>"solnic@trb.org"}]}).model }
 
     it "rendering" do # DISCUSS: not sure if that will stay here, but i like the idea of presentation/logic in one place.
       form = Thing::Update.present({id: thing.id}).contract
