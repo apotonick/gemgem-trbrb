@@ -13,8 +13,6 @@ module Thing::Contract
     property :file, virtual: true
       property :image_meta_data, deserializer: {writeable: false} # FIXME.
 
-      extend Paperdragon::Model::Writer
-      processable_writer :image
       validates :file, file_size: { less_than: 1.megabyte },
         file_content_type: { allow: ['image/jpeg', 'image/png'] }
 

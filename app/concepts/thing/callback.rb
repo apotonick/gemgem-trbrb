@@ -2,11 +2,20 @@ module Thing::Callback
   class Upload < Disposable::Callback::Group
     on_change :upload_image!, property: :file
 
-    def upload_image!(thing, operation:, **)
-      operation.contract.image!(operation.contract.file) do |v|
+    def upload_image!(thing, contract:, **)
+      uploader = Uploader.new(contract.image_meta_data)
+
+      uploader.image!(contract.file) do |v|
         v.process!(:original)
         v.process!(:thumb)   { |job| job.thumb!("120x120#") }
       end
+
+      contract.image_meta_data = uploader.image_meta_data
+    end
+
+    Uploader = Struct.new(:image_meta_data) do
+      extend Paperdragon::Model::Writer
+      processable_writer :image
     end
   end
 
