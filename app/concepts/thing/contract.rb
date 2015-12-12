@@ -54,7 +54,7 @@ module Thing::Contract
     def unconfirmed_users_limit_reached?
       users.each do |user|
         next unless users.added.include?(user) # this covers Update, and i don't really like it here.
-        next if Thing::Create::IsLimitReached.(user.model, errors)
+        next if IsLimitReached.(user.model, errors)
       end
     end
 

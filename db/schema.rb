@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210060505) do
+ActiveRecord::Schema.define(version: 20151212102323) do
 
   create_table "authorships", force: :cascade do |t|
     t.integer  "user_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20151210060505) do
     t.text     "image_meta_data"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "auth_meta_data"
   end
 
 end

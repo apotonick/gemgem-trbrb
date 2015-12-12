@@ -67,8 +67,8 @@ class CommentOperationTest < MiniTest::Spec
   # # create only works once with unconfirmed user.
   it do
     params = {
-      id:      thing.id,
-      comment: {"body"=>"Fantastic!", "weight"=>"1", "user"=>{"email"=>"joe@trb.org"}}
+      thing_id: thing.id,
+      comment:  {"body"=>"Fantastic!", "weight"=>"1", "user"=>{"email"=>"joe@trb.org"}}
     }
 
     op = Comment::Create.(params)
@@ -84,8 +84,8 @@ class CommentOperationTest < MiniTest::Spec
   it do
     user = Session::SignUp::Admin.(user: {"email"=>"joe@trb.org"}).model
     op = Comment::Create.(
-      id:      thing.id,
-      comment: {"body"=>"Fantastic!", "weight"=>"1", "user"=>{"email"=>"joe@trb.org"}}
+      thing_id: thing.id,
+      comment:  {"body"=>"Fantastic!", "weight"=>"1", "user"=>{"email"=>"joe@trb.org"}}
     )
     op.model.user.id.must_equal user.id
   end
@@ -102,7 +102,7 @@ class CommentOperationTest < MiniTest::Spec
           body:   "Fantastic!",
           weight: "1"
         },
-        id: thing.id,
+        thing_id:     thing.id,
         current_user: user
       )
       res.must_equal true

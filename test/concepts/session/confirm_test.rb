@@ -1,5 +1,4 @@
 require "test_helper"
-require "session/operations.rb"
 
 class SessionConfirmTest < MiniTest::Spec
   let (:user) {

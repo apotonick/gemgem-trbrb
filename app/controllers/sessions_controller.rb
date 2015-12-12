@@ -1,5 +1,3 @@
-require_dependency "session/operations" # TODO: via trailblazer.
-
 class SessionsController < ApplicationController
   def sign_up_form
     form Session::SignUp

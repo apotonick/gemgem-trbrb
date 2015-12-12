@@ -1,8 +1,8 @@
 class Comment < ActiveRecord::Base
   class Create < Trailblazer::Operation
-    builds -> (params) do
-      SignedIn if params[:current_user]
-    end
+    # builds -> (params) do
+    #   SignedIn if params[:current_user]
+    # end
 
     include Model
     model Comment, :create
@@ -58,8 +58,8 @@ class Comment < ActiveRecord::Base
     end
 
 
-    require_dependency "session/operations"
-    def sign_up_sleeping!(comment)
+    require_dependency "session/operation"
+    def sign_up_sleeping!(comment, *)
       Session::SignUp::UnconfirmedNoPassword.(user: comment.user.model)
     end
 
