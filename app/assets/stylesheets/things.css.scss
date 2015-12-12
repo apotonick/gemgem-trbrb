@@ -48,3 +48,21 @@ li.negative { background-color: #DCDEDD; padding: 10px; }
 .light {
   background-color: #c4c4c4;
 }
+
+.description {
+  font-size: 16pt;
+}
+.authors {
+  padding-top: 6px;
+  font-size: 11pt;
+  color: #333333;
+}
+
+input.email {
+  width: 75%;
+  float: left;
+}
+
+input.thing_users_delete {
+  background: red;
+}

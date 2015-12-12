@@ -1,0 +1,27 @@
+%h3 What do you want to talk about?
+
+= simple_form_for contract, html: { class: css_class} do |f|
+  - # TODO: can anyone please make things work with simple_form so we don't have to specify label: false, etc. everywhere?
+  = f.input :name, placeholder: "Name", label: false, readonly: contract.readonly?(:name)
+  = f.input :description, placeholder: "Description", label: false
+  = f.input :file, as: :file
+
+  %fieldset
+    %legend Do you know any authors?
+
+    - if has_author_field?
+      .row
+        = f.input :is_author, as: :boolean, label: "I'm the author!"
+
+      %hr
+
+    = f.fields_for :users do |a|
+      .row
+        = a.input :email, readonly: a.object.readonly?
+
+        -if a.object.removeable?
+          = a.input :remove, as: :boolean, inline_label: true, input_html: {checked: false}
+
+  = f.button :submit, class: :expand
+
+= contract.errors.messages

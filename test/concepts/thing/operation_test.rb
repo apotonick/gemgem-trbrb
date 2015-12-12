@@ -99,6 +99,40 @@ class ThingOperationTest < MiniTest::Spec
       res.must_equal false
     end
 
+    describe "I'm the author!" do
+    let (:user) { User::Create.(user: {email: "nick@trb.org"}).model }
+
+    # anonymous
+    it do
+      thing = Thing::Create.(thing: {name: "Rails", users: [{"email"=>user.email}], is_author: "1"}, current_user: nil).model
+      thing.users.must_equal [user]
+    end
+
+    # signed-in
+    it do
+      thing = Thing::Create.(thing: {name: "Rails", users: [{"email"=>user.email}], is_author: "1"}, current_user: current_user).model
+      thing.users.must_equal [user, current_user]
+    end
+
+    it "doesn't add current_user when is_author: 0" do
+      thing = Thing::Create.(thing: {name: "Rails", users: [{"email"=>user.email}], is_author: "0"}, current_user: current_user).model
+      thing.users.must_equal [user]
+    end
+
+    it "doesn't add current_user when :is_author is absent" do
+      thing = Thing::Create.(thing: {name: "Rails", users: [{"email"=>user.email}]}, current_user: current_user).model
+      thing.users.must_equal [user]
+    end
+
+    # admin
+    it do
+      op    = Thing::Create.(thing: {name: "Rails", users: [{"email"=>user.email}], is_author: "1"}, current_user: admin)
+      thing = op.model
+      thing.users.must_equal [user, admin]
+      op.must_be_instance_of Thing::Create::Admin
+    end
+  end
+
     describe "upload" do
       # valid file upload.
       it "valid upload" do

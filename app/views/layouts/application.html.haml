@@ -11,7 +11,7 @@
     = csrf_meta_tags
   %body
     %header
-      = render 'layouts/navigation'
+      = concept "navigation/cell", OpenStruct.new(real_user: params[:real_user], current_user: params[:current_user], "signed_in?" => tyrant.signed_in?)
     %main{:role => "main"}
       = render 'layouts/messages'
       = yield
