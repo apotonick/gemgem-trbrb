@@ -55,7 +55,7 @@ class SessionSignUpTest < MiniTest::Spec
 
     res.must_equal false
     op.model.persisted?.must_equal false
-    op.errors.to_s.must_equal "{:email=>[\"email must be unique.\"]}"
+    op.errors.to_s.must_equal "{:email=>[\"has already been taken\"]}"
   end
 end
 
