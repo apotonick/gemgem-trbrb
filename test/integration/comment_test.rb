@@ -35,6 +35,47 @@ class CommentIntegrationTest < Trailblazer::Test::Integration
       page.current_path.must_equal "/things/#{thing.id}"
       page.must_have_css ".alert-box", text: "Created comment for \"Rails\""
     end
+
+    # signed in.
+    it do
+      sign_in!
+
+      visit thing_path(thing.id)
+      # correct page.
+      page.must_have_content "Lotus"
+      page.wont_have_css "#comment_user_attributes_email"
+
+      fill_in "Your comment", with: "Tired of Rails"
+      click_button "Create Comment"
+
+      page.must_have_content "Created comment"
+      page.must_have_css ".comment", text: "Tired of Rails"
+    end
+
+    # signed in, validations fail.
+    it do
+      sign_in!
+
+      visit thing_path(thing.id)
+      # correct page.
+      page.must_have_content "Lotus"
+
+      fill_in "Your comment", with: ""
+      click_button "Create Comment"
+
+      page.must_have_content "is too short"
+      # page.must_have_css ".comment", text: "Tired of Rails"
+
+      fill_in "Your comment", with: ""
+      click_button "Create Comment"
+
+      page.must_have_content "is too short"
+
+      fill_in "Your comment", with: "Tired of Rails"
+      click_button "Create Comment"
+
+      page.must_have_content "Created comment"
+    end
   end
 
   describe "#next_comments" do
