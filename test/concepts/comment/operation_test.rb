@@ -23,6 +23,8 @@ class CommentOperationTest < MiniTest::Spec
       comment.user.email.must_equal "jonny@trb.org"
 
       op.thing.must_equal thing
+
+      Tyrant::Authenticatable.new(comment.user).confirmable?.must_equal true
     end
 
     it "invalid" do
@@ -58,6 +60,62 @@ class CommentOperationTest < MiniTest::Spec
 
       res.must_equal false
       operation.errors.messages[:"body"].must_equal ["is too long (maximum is 160 characters)"]
+    end
+  end
+
+
+  # # create only works once with unconfirmed user.
+  it do
+    params = {
+      id:      thing.id,
+      comment: {"body"=>"Fantastic!", "weight"=>"1", "user"=>{"email"=>"joe@trb.org"}}
+    }
+
+    op = Comment::Create.(params)
+
+    # second call is invalid!
+    res, op = Comment::Create.run(params)
+
+    res.must_equal false
+    op.contract.errors.to_s.must_equal "{:users=>[\"User is unconfirmed and already assign to another thing or reached comment limit.\"]}"
+  end
+
+  # existing comment email will associate user.
+  it do
+    user = Session::SignUp::Admin.(user: {"email"=>"joe@trb.org"}).model
+    op = Comment::Create.(
+      id:      thing.id,
+      comment: {"body"=>"Fantastic!", "weight"=>"1", "user"=>{"email"=>"joe@trb.org"}}
+    )
+    op.model.user.id.must_equal user.id
+  end
+
+
+  class CommentSignedInTest < MiniTest::Spec
+    let (:thing) { Thing::Create[thing: {name: "Ruby"}].model }
+    let (:user) { User.create(email: "liza@trb.org") } # TODO: operation.
+
+    # valid
+    it do
+      res, op = Comment::Create::SignedIn.run(
+        comment: {
+          body:   "Fantastic!",
+          weight: "1"
+        },
+        id: thing.id,
+        current_user: user
+      )
+      res.must_equal true
+
+      comment = op.model
+
+      comment.persisted?.must_equal true
+      comment.body.must_equal "Fantastic!"
+      comment.weight.must_equal 1
+
+      comment.user.must_equal user
+      comment.thing.must_equal thing
+      user.auth_meta_data.must_equal nil # TODO: this is how i test that callback hasn't been run, currently.
     end
   end
 end

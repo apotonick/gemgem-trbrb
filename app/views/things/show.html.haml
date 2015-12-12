@@ -16,8 +16,9 @@
   = f.input :body, placeholder: "Your comment", label: false
   = f.collection_radio_buttons :weight, *@form.weights
 
-  = f.fields_for :user do |u|
-    = u.input :email, placeholder: "Your email", label: false
+  - unless tyrant.signed_in?
+    = f.fields_for :user do |u|
+      = u.input :email, placeholder: "Your email", label: false
 
   = f.button :submit, class: :expand
 

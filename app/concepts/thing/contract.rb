@@ -40,6 +40,8 @@ module Thing::Contract
     end
     validates :users, length: {maximum: 3}
 
+    validate :unconfirmed_users_limit_reached?
+
   private
     def prepopulate_users!(options)
       (3 - users.size).times { users << User.new }
@@ -47,6 +49,22 @@ module Thing::Contract
 
     def populate_users!(fragment:, **)
       User.find_by_email(fragment["email"]) or User.new
+    end
+
+    def unconfirmed_users_limit_reached?
+      users.each do |user|
+        next unless users.added.include?(user) # this covers Update, and i don't really like it here.
+        next if Thing::Create::IsLimitReached.(user.model, errors)
+      end
+    end
+
+    class IsLimitReached
+      def self.call(user, errors)
+        return unless Tyrant::Authenticatable.new(user).confirmable?
+
+        return if user.authorships.size == 0 && user.comments.size == 0
+        errors.add("users", "User is unconfirmed and already assign to another thing or reached comment limit.")
+      end
     end
   end
 

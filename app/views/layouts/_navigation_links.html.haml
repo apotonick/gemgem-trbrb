@@ -1,0 +1,13 @@
+%li
+  = link_to "Start discussion!", new_thing_path
+
+- if tyrant.signed_in?
+  %li
+    = link_to "Hi, #{tyrant.current_user.email}", user_path(tyrant.current_user)
+  %li
+    = link_to "Sign out", sessions_sign_out_path
+- else
+  %li
+    = link_to "Sign in", sessions_sign_in_form_path
+  %li
+    = link_to "Sign up", sessions_sign_up_form_path

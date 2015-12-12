@@ -66,6 +66,10 @@ class ThingOperationTest < MiniTest::Spec
       model.authorships.pluck(:confirmed).must_equal [0, 0]
       # callbacks invoked.
       op.invocations[:default].invocations[0].must_equal [:on_add, :notify_author!, [op.contract.users[0], op.contract.users[1]]]
+
+      # unconfirmed signup.
+      Tyrant::Authenticatable.new(model.users[0]).confirmable?.must_equal false # TODO: entry points for users!
+      Tyrant::Authenticatable.new(model.users[1]).confirmable?.must_equal true
     end
 
     # too many users
@@ -79,11 +83,20 @@ class ThingOperationTest < MiniTest::Spec
 
     # author has more than 5 unconfirmed authorships.
     it do
+      User.create(email: "nick@trb.org") # this is "confirmed".
+
       5.times { |i| Thing::Create.(thing: {name: "Rails #{i}", users: [{"email"=>"nick@trb.org"}]}) }
       res, op = Thing::Create.run(thing: {name: "Rails", users: [{"email"=>"nick@trb.org"}]})
 
       res.must_equal false
       op.errors.to_s.must_equal "{:\"users.user\"=>[\"This user has too many unconfirmed authorships.\"]}"
+    end
+
+    # author is sleeping and can only be added to one thing.
+    it do
+      Thing::Create.(thing: {name: "Rails", users: [{"email"=>"nick@trb.org"}]}) # nick@trb.org is unsignedup
+      res, op = Thing::Create.run(thing: {name: "Trb", users: [{"email"=>"nick@trb.org"}]})
+      res.must_equal false
     end
 
     describe "upload" do
@@ -174,6 +187,32 @@ class ThingOperationTest < MiniTest::Spec
       res.must_equal true
       op.model.users.must_equal []
       joe.persisted?.must_equal true
+    end
+  end
+end
+
+class ThingSignedInOperationTest < MiniTest::Spec
+  describe "Create::SignedIn" do
+    let (:current_user) { User.create(email: "solnic@trb.org") } # TODO: replace with operation, once we got one.
+
+    # valid, no flag set.
+    it do
+      model  = Thing::Create.(
+        current_user: current_user,
+        thing:        {"name"=>"Rails", "users" => [{"email"=>"nick@trb.org"}], "is_author"=> "0"}
+      ).model
+
+      model.users.map { |u| u.email }.must_equal(["nick@trb.org"])
+    end
+
+    # valid, flag set.
+    it do
+      model  = Thing::Create.(
+        current_user: current_user,
+        thing:        {"name"=>"Rails", "users" => [{"email"=>"nick@trb.org"}], "is_author"=>"1"}
+      ).model
+
+      model.users.map { |u| u.email }.must_equal(["nick@trb.org", "solnic@trb.org"])
     end
   end
 end

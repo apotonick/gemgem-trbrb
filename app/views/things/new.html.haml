@@ -8,6 +8,13 @@
 
   %fieldset
     %legend Do you know any authors?
+
+    - if tyrant.signed_in?
+      .row
+        = f.input :is_author, as: :boolean, label: "I'm the author!"
+
+      %hr
+
     = f.fields_for :users do |a|
       .row
         = a.input :email, readonly: a.object.readonly?

@@ -1,0 +1,9 @@
+%h1 Come in!
+
+= simple_form_for(@form, url: sessions_sign_in_path, as: :session) do |f|
+  .row
+    = f.input :email, placeholder: "Email", label: false
+  .row
+    = f.input :password, placeholder: "Password", label: false
+
+  = f.button :submit, "Sign in!", class: :expand
