@@ -1,9 +1,5 @@
 class Comment < ActiveRecord::Base
   class Create < Trailblazer::Operation
-    # builds -> (params) do
-    #   SignedIn if params[:current_user]
-    # end
-
     include Model
     model Comment, :create
 
@@ -61,32 +57,6 @@ class Comment < ActiveRecord::Base
     require_dependency "session/operation"
     def sign_up_sleeping!(comment, *)
       Session::SignUp::UnconfirmedNoPassword.(user: comment.user.model)
-    end
-
-
-    class SignedIn < Create
-      contract do
-        property :user, deserializer: {writeable: false} do
-        end # TODO: allow to remove.
-        validates :user, presence: :true
-      end
-
-      def sign_up_sleeping!(comment)
-        # TODO: allow to skip.
-      end
-
-      def process(params)
-        contract.user = params[:current_user]
-
-        # params[:comment].delete(:user_attributes)  # FIXME!
-        # params[:comment][:user] = params[:current_user]
-        super
-      end
-
-      # def setup_params!(params)
-      #     # FIXME: this is also called in Op#form context. find a better way for "params handling".
-      #   params[:comment][:user] = params[:current_user] if params[:comment]# TODO: how do we handle missing [:comment]?
-      # end
     end
   end
 end
