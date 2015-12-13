@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ThingsControllerCreateTest < IntegrationTest
+class ThingsControllerCreateTest < Trailblazer::Test::Integration
   # let (:thing) do
   #   thing = Thing::Create.(thing: {name: "Rails"}).model
 

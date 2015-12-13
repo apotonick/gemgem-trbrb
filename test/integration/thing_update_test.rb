@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ThingsControllerUpdateTest < IntegrationTest
+class ThingsControllerUpdateTest < Trailblazer::Test::Integration
   def assert_edit_form
     page.must_have_css "#thing_users_attributes_0_remove"
     # empty email for new.

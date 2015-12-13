@@ -1,3 +1,5 @@
+require_dependency "thing/policy" # TODO: do with trailblazer-loader
+
 class Thing < ActiveRecord::Base
   class Create < Trailblazer::Operation
     include Resolver
@@ -68,4 +70,11 @@ class Thing < ActiveRecord::Base
     include Trailblazer::Operation::Policy
     policy Thing::Policy, :show?
   end
+
+  ImageProcessor = Struct.new(:image_meta_data) do
+    extend Paperdragon::Model::Writer
+    processable_writer :image
+  end
 end
+
+require_dependency "thing/delete" # TODO: do with trailblazer-loader

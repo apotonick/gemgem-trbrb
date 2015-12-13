@@ -5,16 +5,11 @@ module Thing::SignedIn
     property :is_author, virtual: true, default: "0"
   end
 
-  callback(:before_save) do
+  callback(:upload) do
     on_change :add_current_user_as_author!, property: :is_author
-  end
 
-  def add_current_user_as_author!(thing)
-    # puts "@@@@@ #{thing.is_author.inspect}"
-    thing.users << @current_user
-  end
-
-  def setup_params!(params) # TODO: allow passing params to callback.
-    @current_user = params[:current_user]
+    def add_current_user_as_author!(thing, params:, **)
+      thing.users << params[:current_user]
+    end
   end
 end

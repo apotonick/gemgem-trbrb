@@ -1,6 +1,6 @@
 require "test_helper"
 
-class SessionImpersonateTest < IntegrationTest
+class SessionImpersonateTest < Trailblazer::Test::Integration
   let (:jimmy) { User::Create.(user: {email: "jimmy@trb.org"}) }
   before { jimmy }
 

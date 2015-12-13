@@ -1,4 +1,6 @@
 class Thing::Delete < Trailblazer::Operation
+  include Trailblazer::Operation::Policy
+
   include Model
   model Thing, :find
   policy Thing::Policy, :delete?
@@ -14,5 +16,5 @@ private
     Thing::ImageProcessor.new(model.image_meta_data).image! { |v| v.delete! }
   end
 
-  include Gemgem::ExpireCache
+  include Gemgem::Cell::ExpireCache
 end
