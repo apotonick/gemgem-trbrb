@@ -14,6 +14,8 @@ class CommentIntegrationTest < Trailblazer::Test::Integration
     it "is invalid" do
       visit "/things/#{thing.id}"
 
+      puts page.body
+
       fill_in "Your comment", with: "invalid"
       click_button "Create Comment"
 
@@ -29,6 +31,7 @@ class CommentIntegrationTest < Trailblazer::Test::Integration
 
       fill_in "Your comment", with: "That green jacket!"
       choose "Nice!"
+      puts page.body
       fill_in "Your email", with: "seuros@trb.to"
       click_button "Create Comment"
 
@@ -41,8 +44,9 @@ class CommentIntegrationTest < Trailblazer::Test::Integration
       sign_in!
 
       visit thing_path(thing.id)
+
       # correct page.
-      page.must_have_content "Lotus"
+      page.must_have_content "Rails"
       page.wont_have_css "#comment_user_attributes_email"
 
       fill_in "Your comment", with: "Tired of Rails"
@@ -58,7 +62,7 @@ class CommentIntegrationTest < Trailblazer::Test::Integration
 
       visit thing_path(thing.id)
       # correct page.
-      page.must_have_content "Lotus"
+      page.must_have_content "Rails"
 
       fill_in "Your comment", with: ""
       click_button "Create Comment"
@@ -81,6 +85,7 @@ class CommentIntegrationTest < Trailblazer::Test::Integration
   describe "#next_comments" do
     it do
       visit thing_path(thing.id)
+
       # xhr :get, :next_comments, id: thing.id, page: 2
       click_link "More!"
 

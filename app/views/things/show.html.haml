@@ -5,10 +5,10 @@
     = concept("thing/cell/decorator", @thing).(:thumb)
 
     #{@thing.name}
-    - if @op.policy.(:edit?)
+    - if @thing_op.policy.(:edit?)
       - # TODO: test links with admin, owner, non-owner.
       = link_to "Edit", edit_thing_path(@thing)
-    - if @op.policy.(:delete?)
+    - if @thing_op.policy.(:delete?)
       = link_to "Delete", thing_path(@thing), method: :delete
 
 .description
@@ -31,7 +31,7 @@
 
   - unless tyrant.signed_in?
     = f.fields_for :user do |u|
-      = u.input :email, placeholder: "Your Email", label: false
+      = u.input :email, placeholder: "Your email", label: false
 
   = f.button :submit, class: :expand
 

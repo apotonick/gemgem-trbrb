@@ -30,14 +30,14 @@ class ThingsController < ApplicationController
   end
 
   def show
-    @thing_op = present Thing::Update
+    @thing_op = present Thing::Show
     @thing    = @thing_op.model
 
     form Comment::Create # overrides @model and @form!
   end
 
   def create_comment
-    @thing_op = present Thing::Update
+    @thing_op = present Thing::Show
     @thing    = @thing_op.model
 
     run Comment::Create, params: params.merge(thing_id: params[:id]) do |op| # overrides @model and @form!
@@ -50,7 +50,7 @@ class ThingsController < ApplicationController
 
   protect_from_forgery except: :next_comments # FIXME: this is only required in the test, things_controller_test.
   def next_comments
-    present Thing::Update
+    present Thing::Show
 
     render js: concept("comment/cell/grid", @model, page: params[:page]).(:append)
   end
