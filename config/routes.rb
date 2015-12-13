@@ -19,4 +19,14 @@ Rails.application.routes.draw do
 
   get  "sessions/wake_up_form/:id", controller: :sessions, action: :wake_up_form
   post "sessions/wake_up/:id", controller: :sessions, action: :wake_up, as: :session_wake_up
+
+  namespace :api do
+    namespace :v1 do
+      resources :things do#, to: API::V1::Thing::Controller
+        resources :comments
+      end
+      resources :users
+      resources :comments
+    end
+  end
 end
