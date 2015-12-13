@@ -25,9 +25,13 @@ class Comment < ActiveRecord::Base
 
       property :user,
           # prepopulator:      lambda { |options| self.user = User.new },
-          populate_if_empty: lambda { |*| User.new } do
+          populator: :populate_user! do
         property :email
         validates :email, presence: true, email: true
+      end
+
+      def populate_user!(fragment:, **)
+        self.user = (User.find_by(email: fragment["email"]) or User.new)
       end
     end
 
