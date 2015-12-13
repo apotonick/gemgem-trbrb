@@ -26,6 +26,8 @@ class Comment < ActiveRecord::Base
       validates :body, length: { in: 6..160 }
       validates :weight, inclusion: { in: weights.keys }
       validates :thing, :user, presence: true
+      validate { user and Thing::Contract::Create::IsLimitReached.call(user.model, errors) }
+
       property :user,
           # prepopulator:      lambda { |options| self.user = User.new },
           populator: :populate_user! do

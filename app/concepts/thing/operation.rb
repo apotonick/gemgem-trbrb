@@ -37,6 +37,9 @@ class Thing < ActiveRecord::Base
     class SignedIn < self
       include Thing::SignedIn
     end
+
+    class Admin < SignedIn
+    end
   end
 
   class Update < Create
