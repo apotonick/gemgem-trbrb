@@ -3,7 +3,7 @@ module Thing::Callback
     on_change :upload_image!, property: :file
 
     def upload_image!(thing, contract:, **)
-      uploader = Uploader.new(contract.image_meta_data)
+      uploader = ImageProcessor.new(contract.image_meta_data)
 
       uploader.image!(contract.file) do |v|
         v.process!(:original)
@@ -13,7 +13,7 @@ module Thing::Callback
       contract.image_meta_data = uploader.image_meta_data
     end
 
-    Uploader = Struct.new(:image_meta_data) do
+    ImageProcessor = Struct.new(:image_meta_data) do
       extend Paperdragon::Model::Writer
       processable_writer :image
     end
