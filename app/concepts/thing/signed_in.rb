@@ -3,6 +3,14 @@ module Thing::SignedIn
 
   contract do
     property :is_author, virtual: true, default: "0"
+
+    # def is_author_
+    #   puts "@@@@@ :: #{super.inspect}"
+    #   super || "0"
+    #   # puts "@@@@@ #{super.inspect}"
+    #   # return super.() if super.is_a?(Uber::Options::Value)
+    #   # super
+    # end
   end
 
   callback(:upload) do
