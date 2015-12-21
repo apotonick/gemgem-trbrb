@@ -32,26 +32,28 @@ group :production do
 end
 
 # stable versions will be released soon.
-gem "reform",      github: "apotonick/reform"
-gem "trailblazer", github: "apotonick/trailblazer"
+# gem "reform",      github: "apotonick/reform"
+gem "trailblazer",       "1.1.0.rc1"
+gem "trailblazer-rails", ">= 0.2.3"
+# gem "roar",        github: "apotonick/roar" #"1.0.0"
+gem "representable",     "3.0.0"
+gem "reform",            "2.1.0.rc1"
 
 # gem "reform", path: "../reform"
 # gem "representable", path: "../representable"
-gem "representable", "2.4.0"
 # gem "reform", "2.0.4"
 # gem "disposable", github: "apotonick/disposable"
 gem "virtus"
 
-gem "disposable", ">= 0.2.1"
+# gem "disposable", ">= 0.2.1"
 # gem "tyrant", path: "../tyrant"
 gem "tyrant", "0.0.3"
 
-# gem "trailblazer", "1.0.1"
+# gem "trailblazer", github: "apotonick/trailblazer"
 # gem "trailblazer", path: "../trailblazer"
 # gem "trailblazer-loader", path: "../trailblazer-loader"
-# gem "trailblazer-rails", github: "trailblazer/trailblazer-rails"#, path: "../trailblazer-rails"
+# gem "trailblazer-rails", github: "trailblazer/trailblazer-rails"
 # gem "trailblazer-rails", path: "../trailblazer-rails"
-gem "trailblazer-rails", ">= 0.2.1"
 # gem "disposable", path: "../disposable"
 # gem "cells", git: "https://github.com/apotonick/cells"
 # gem "cells", path: "../cells"
