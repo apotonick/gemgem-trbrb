@@ -6,7 +6,7 @@ module Thing::Contract
     collection :users, inherit: true, populator: :user! do
       property :email, skip_if: :skip_email?
 
-      def skip_email?(fragment, options)
+      def skip_email?(options)
         model.persisted?
       end
     end
@@ -17,11 +17,11 @@ module Thing::Contract
       if fragment["remove"] == "1"
         deserialized_user = users.find { |u| u.id.to_s == fragment["id"] }
         users.delete(deserialized_user)
-        return Representable::Pipeline::Stop
+        return skip!
       end
 
       # skip if already existing
-      return Representable::Pipeline::Stop if users[index]
+      return skip! if users[index]
 
       users.insert(index, User.new)
     end
