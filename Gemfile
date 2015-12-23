@@ -33,7 +33,7 @@ end
 
 # stable versions will be released soon.
 # gem "reform",      github: "apotonick/reform"
-gem "trailblazer",       "1.1.0.rc1"
+gem "trailblazer",       "1.1.0"
 gem "trailblazer-rails", ">= 0.2.3"
 # gem "roar",        github: "apotonick/roar" #"1.0.0"
 gem "representable",     "3.0.0"
