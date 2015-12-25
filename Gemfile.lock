@@ -91,7 +91,7 @@ GEM
       uber (>= 0.0.15)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
-    disposable (0.2.1)
+    disposable (0.2.2)
       declarative (~> 0.0.4)
       representable (>= 2.4.0, <= 3.1.0)
       uber
@@ -219,8 +219,8 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     ref (2.0.0)
-    reform (2.1.0.rc1)
-      disposable (>= 0.2.1, < 0.3.0)
+    reform (2.1.0)
+      disposable (>= 0.2.2, < 0.3.0)
       representable (>= 2.4.0, < 3.1.0)
       uber (~> 0.0.11)
     representable (3.0.0)
@@ -260,7 +260,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
-    trailblazer (1.1.0.rc1)
+    trailblazer (1.1.0)
       declarative
       reform (>= 2.0.0, < 3.0.0)
       uber (>= 0.0.15)
@@ -317,7 +317,7 @@ DEPENDENCIES
   rails-timeago
   rails_12factor
   rails_layout
-  reform (= 2.1.0.rc1)
+  reform (= 2.1.0)
   representable (= 3.0.0)
   responders
   roar!
@@ -326,7 +326,7 @@ DEPENDENCIES
   sqlite3
   therubyracer
   thin
-  trailblazer (= 1.1.0.rc1)
+  trailblazer (= 1.1.0)
   trailblazer-rails (>= 0.2.3)
   tyrant (= 0.0.3)
   uglifier (>= 1.3.0)

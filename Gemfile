@@ -37,7 +37,7 @@ gem "trailblazer",       "1.1.0"
 gem "trailblazer-rails", ">= 0.2.3"
 # gem "roar",        github: "apotonick/roar" #"1.0.0"
 gem "representable",     "3.0.0"
-gem "reform",            "2.1.0.rc1"
+gem "reform",            "2.1.0"
 
 # gem "reform", path: "../reform"
 # gem "representable", path: "../representable"
@@ -73,3 +73,5 @@ gem "rails-timeago"
 gem "email_validator"
 
 gem "foundation-icons-sass-rails"
+
+# gem "dry-validation"
