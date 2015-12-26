@@ -15,7 +15,7 @@ module Thing::Contract
     def user!(fragment:, index:, **)
       # don't process if it's getting removed!
       if fragment["remove"] == "1"
-        deserialized_user = users.find { |u| u.id.to_s == fragment["id"] }
+        deserialized_user = users.find_by(id: fragment["id"])
         users.delete(deserialized_user)
         return skip!
       end

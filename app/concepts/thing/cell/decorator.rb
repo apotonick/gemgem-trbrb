@@ -1,5 +1,5 @@
-class Thing::Cell < Cell::Concept
-  class Decorator < Cell::Concept
+module Thing::Cell
+  class Decorator < Trailblazer::Cell
     extend Paperdragon::Model::Reader
     processable_reader :image
     property :image_meta_data

@@ -1,7 +1,6 @@
-class Thing::Cell < Cell::Concept
-
+module Thing::Cell
   # The public helper that collects latest things and renders the grid.
-  class Grid < Cell::Concept
+  class Grid < Trailblazer::Cell
     include Cell::Caching::Notifications
 
     cache :show do
@@ -10,7 +9,7 @@ class Thing::Cell < Cell::Concept
 
     def show
       things = Thing.latest
-      concept("thing/cell", collection: things, last: things.last)
+      concept("thing/cell/teaser", collection: things, last: things.last)
     end
   end
 end

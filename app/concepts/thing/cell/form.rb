@@ -1,27 +1,27 @@
-class Thing::Cell::Form < ::Cell::Concept
-  inherit_views Thing::Cell
+module Thing::Cell
+  class Form < Trailblazer::Cell
+    include ActionView::RecordIdentifier
+    include SimpleForm::ActionViewExtensions::FormHelper
 
-  include ActionView::RecordIdentifier
-  include SimpleForm::ActionViewExtensions::FormHelper
+    def show
+      render :form
+    end
 
-  def show
-    render :form
-  end
+  private
+    property :contract
 
-private
-  property :contract
+    def css_class
+      return "admin" if admin?
+      ""
+    end
 
-  def css_class
-    return "admin" if admin?
-    ""
-  end
+    def has_author_field?
+      contract.options_for(:is_author)
+    end
 
-  def has_author_field?
-    contract.options_for(:is_author)
-  end
-
-  # this will be ::property :signed_in?, boolean: true
-  def admin?
-    model.policy.admin?
+    # this will be ::property :signed_in?, boolean: true
+    def admin?
+      model.policy.admin?
+    end
   end
 end
