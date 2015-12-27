@@ -55,6 +55,12 @@ class ThingsController < ApplicationController
     render js: concept("comment/cell/grid", @model, page: params[:page]).(:append)
   end
 
+  def destroy
+    run Thing::Delete do |op|
+      redirect_to root_path
+    end
+  end
+
 private
   def render_form
     render text: concept("thing/cell/form", @operation),

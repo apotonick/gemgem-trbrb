@@ -6,6 +6,13 @@ GIT
     haml (4.1.0.beta.1)
       tilt
 
+GIT
+  remote: git://github.com/trailblazer/trailblazer-cells.git
+  revision: 7d23a0a6ccc528868abdde27cc3eca8d52466f3b
+  specs:
+    trailblazer-cells (0.0.1)
+      cells (>= 4.0.3, < 5.0.0)
+
 PATH
   remote: ../roar
   specs:
@@ -91,7 +98,7 @@ GEM
       uber (>= 0.0.15)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
-    disposable (0.2.2)
+    disposable (0.2.3)
       declarative (~> 0.0.4)
       representable (>= 2.4.0, <= 3.1.0)
       uber
@@ -264,7 +271,7 @@ GEM
       declarative
       reform (>= 2.0.0, < 3.0.0)
       uber (>= 0.0.15)
-    trailblazer-loader (0.0.5)
+    trailblazer-loader (0.0.6)
     trailblazer-rails (0.2.3)
       trailblazer (>= 1.0.4)
       trailblazer-loader (>= 0.0.4)
@@ -298,6 +305,7 @@ DEPENDENCIES
   cells (= 4.0.3)
   cells-haml (= 0.0.8)
   coffee-rails (~> 4.0.0)
+  disposable (= 0.2.3)
   email_validator
   file_validators (~> 1.2)
   foundation-icons-sass-rails
@@ -327,6 +335,7 @@ DEPENDENCIES
   therubyracer
   thin
   trailblazer (= 1.1.0)
+  trailblazer-cells!
   trailblazer-rails (>= 0.2.3)
   tyrant (= 0.0.3)
   uglifier (>= 1.3.0)
