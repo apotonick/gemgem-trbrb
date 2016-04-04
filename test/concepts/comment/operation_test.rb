@@ -52,7 +52,7 @@ class CommentOperationTest < MiniTest::Spec
     it "invalid body" do
       res, operation = Comment::Create.run(
         comment: {
-          body:   "Fantastic, but a little bit to long this piece of shared information is! Didn't we say that it has to be less than 16 characters? Well, maybe you should listen to what I say."
+          body:   "Fantastic, but a little bit to long this piece of shared information is! Didn't we say that it has to be less than 160 characters? Well, maybe you should listen to what I say."
         }
       )
 
