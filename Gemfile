@@ -31,29 +31,22 @@ group :production do
   gem "rails_12factor"
 end
 
-# stable versions will be released soon.
-# gem "reform",      github: "apotonick/reform"
-gem "trailblazer",       "1.1.0"
-gem "trailblazer-rails", ">= 0.2.3"
-# gem "roar",        github: "apotonick/roar" #"1.0.0"
-gem "representable",     "3.0.0"
-gem "reform",            "2.1.0"
-
-# gem "reform", path: "../reform"
-# gem "representable", path: "../representable"
 # gem "reform", "2.0.4"
 # gem "disposable", github: "apotonick/disposable"
 gem "virtus"
 
-# gem "disposable", ">= 0.2.1"
-# gem "tyrant", path: "../tyrant"
+# gem "disposable", path: "../disposable"
 gem "tyrant", "0.0.3"
+# gem "tyrant", github: "apotonick/tyrant"
+# gem "tyrant", path: "../tyrant"
 
-# gem "trailblazer", github: "apotonick/trailblazer"
+gem "trailblazer", "1.1.0"
+gem "trailblazer-loader", '0.0.1'
+gem "trailblazer-rails", '0.2.0'
 # gem "trailblazer", path: "../trailblazer"
 # gem "trailblazer-loader", path: "../trailblazer-loader"
-# gem "trailblazer-rails", github: "trailblazer/trailblazer-rails"
 # gem "trailblazer-rails", path: "../trailblazer-rails"
+
 # gem "disposable", path: "../disposable"
 # gem "cells", git: "https://github.com/apotonick/cells"
 # gem "cells", path: "../cells"
@@ -64,8 +57,8 @@ gem "kaminari-cells"
 
 gem "paperdragon", ">= 0.0.10"
 gem "file_validators", "~> 1.2"
-gem "roar", path: "../roar" #"1.0.0"
-# gem "roar", "1.0.2"
+gem "roar", github: "apotonick/roar" #"1.0.0"
+# gem "roar", "1.0.3"
 
 gem "pundit"
 

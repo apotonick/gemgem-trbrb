@@ -17,11 +17,11 @@ class Thing < ActiveRecord::Base
 
     include Dispatch # TODO: in initializer.
     callback :default, Callback::Default
-    callback :upload, Callback::Upload
+    callback :before_save, Callback::BeforeSave
 
     def process(params)
       validate(params[:thing]) do |f|
-        dispatch!(:upload)
+        dispatch!(:before_save)
         # upload_image!(f) if f.changed?(:file)
         f.save
 
