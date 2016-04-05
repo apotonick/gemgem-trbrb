@@ -1,11 +1,10 @@
 require "trailblazer/operation/dispatch"
-# require "trailblazer/operation/representer"
-# require "trailblazer/operation/responder"
 
 Trailblazer::Operation.class_eval do
   include Trailblazer::Operation::Dispatch
 end
 
+require "roar/decorator"
 require "roar/json/hal"
 
 ::Roar::Representer.module_eval do

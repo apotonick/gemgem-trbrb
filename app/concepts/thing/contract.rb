@@ -75,7 +75,7 @@ module Thing::Contract
     collection :users, inherit: true, populator: :user! do
       property :email, skip_if: :skip_email?
 
-      def skip_email?(fragment, options)
+      def skip_email?(options)
         model.persisted?
       end
     end

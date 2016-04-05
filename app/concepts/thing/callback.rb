@@ -1,5 +1,5 @@
 module Thing::Callback
-  class Upload < Disposable::Callback::Group
+  class BeforeSave < Disposable::Callback::Group
     on_change :upload_image!, property: :file
 
     collection :users do
