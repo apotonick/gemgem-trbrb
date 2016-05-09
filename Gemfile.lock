@@ -68,12 +68,15 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    cells (4.0.3)
+    cells (4.1.1)
       tilt (>= 1.4, < 3)
-      uber (~> 0.0.9)
-    cells-haml (0.0.8)
-      cells (~> 4.0.0.beta6)
+      uber (>= 0.0.9)
+    cells-haml (0.0.10)
+      cells (>= 4.0.1, <= 6.0.0)
       haml (>= 4.1.0.beta.1)
+    cells-rails (0.0.3)
+      actionpack (>= 3.0)
+      cells (>= 4.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -298,8 +301,9 @@ PLATFORMS
 
 DEPENDENCIES
   binding_of_caller
-  cells (= 4.0.3)
-  cells-haml (= 0.0.8)
+  cells (= 4.1.1)
+  cells-haml
+  cells-rails
   coffee-rails (~> 4.0.0)
   email_validator
   file_validators (~> 1.2)

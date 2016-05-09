@@ -50,8 +50,9 @@ gem "trailblazer-rails", '0.2.0'
 # gem "disposable", path: "../disposable"
 # gem "cells", git: "https://github.com/apotonick/cells"
 # gem "cells", path: "../cells"
-gem "cells", "4.0.3"
-gem "cells-haml", "0.0.8"
+gem "cells-rails"
+gem "cells", "4.1.1"
+gem "cells-haml"
 gem "haml", github: "haml/haml", ref: "7c7c169"
 gem "kaminari-cells"
 
