@@ -33,9 +33,8 @@ end
 
 # gem "reform", "2.0.4"
 # gem "disposable", github: "apotonick/disposable"
-gem "virtus"
-
 # gem "disposable", path: "../disposable"
+
 gem "tyrant", "0.0.3"
 # gem "tyrant", github: "apotonick/tyrant"
 # gem "tyrant", path: "../tyrant"
@@ -46,6 +45,9 @@ gem "trailblazer-rails", '0.2.0'
 # gem "trailblazer", path: "../trailblazer"
 # gem "trailblazer-loader", path: "../trailblazer-loader"
 # gem "trailblazer-rails", path: "../trailblazer-rails"
+
+gem "reform", "2.2.0"
+gem "reform-rails"
 
 # gem "disposable", path: "../disposable"
 # gem "cells", git: "https://github.com/apotonick/cells"

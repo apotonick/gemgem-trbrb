@@ -53,10 +53,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (6.0.3)
-    axiom-types (0.1.1)
-      descendants_tracker (~> 0.0.4)
-      ice_nine (~> 0.11.0)
-      thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -81,8 +77,6 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
-    coercible (1.0.0)
-      descendants_tracker (~> 0.0.1)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -94,9 +88,7 @@ GEM
     debug_inspector (0.0.2)
     declarative (0.0.7)
       uber (>= 0.0.15)
-    descendants_tracker (0.0.4)
-      thread_safe (~> 0.3, >= 0.3.1)
-    disposable (0.2.6)
+    disposable (0.3.0)
       declarative (~> 0.0.6)
       representable (>= 2.4.0, <= 3.1.0)
       uber
@@ -106,7 +98,6 @@ GEM
       rack (>= 1.3.0)
     email_validator (1.6.0)
       activemodel
-    equalizer (0.0.11)
     erubis (2.7.0)
     eventmachine (1.2.0.1)
     execjs (2.6.0)
@@ -136,7 +127,6 @@ GEM
       hpricot (~> 0.8.6)
       ruby_parser (~> 3.1.1)
     i18n (0.7.0)
-    ice_nine (0.11.2)
     jquery-rails (4.1.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -226,10 +216,13 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (11.1.2)
     ref (2.0.0)
-    reform (2.1.0)
-      disposable (>= 0.2.2, < 0.3.0)
+    reform (2.2.0)
+      disposable (>= 0.3.0, < 0.4.0)
       representable (>= 2.4.0, < 3.1.0)
       uber (~> 0.0.11)
+    reform-rails (0.1.2)
+      activemodel (>= 3.2)
+      reform (>= 2.2.0.rc1)
     representable (3.0.0)
       declarative (~> 0.0.5)
       uber (~> 0.0.15)
@@ -286,11 +279,6 @@ GEM
     uber (0.0.15)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
-    virtus (1.0.5)
-      axiom-types (~> 0.1)
-      coercible (~> 1.0)
-      descendants_tracker (~> 0.0, >= 0.0.3)
-      equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.6)
       rack (>= 1.0)
     xpath (2.0.0)
@@ -324,6 +312,8 @@ DEPENDENCIES
   rails-timeago
   rails_12factor
   rails_layout
+  reform (= 2.2.0)
+  reform-rails
   responders
   roar!
   sass-rails (~> 4.0.3)
@@ -336,7 +326,6 @@ DEPENDENCIES
   trailblazer-rails (= 0.2.0)
   tyrant (= 0.0.3)
   uglifier (>= 1.3.0)
-  virtus
 
 BUNDLED WITH
    1.10.6
