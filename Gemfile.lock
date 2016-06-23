@@ -177,6 +177,9 @@ GEM
       minitest-capybara (~> 0.7.0)
       minitest-metadata (~> 0.5.0)
       minitest-rails (~> 2.1)
+    minitest-spec-rails (5.4.0)
+      minitest (~> 5.0)
+      rails (>= 4.1)
     multi_json (1.11.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -316,6 +319,7 @@ DEPENDENCIES
   memory_test_fix
   minitest-line
   minitest-rails-capybara
+  minitest-spec-rails
   paperdragon (>= 0.0.10)
   pg
   pundit
@@ -339,4 +343,4 @@ DEPENDENCIES
   virtus
 
 BUNDLED WITH
-   1.10.6
+   1.12.5

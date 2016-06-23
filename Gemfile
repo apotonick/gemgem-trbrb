@@ -18,6 +18,7 @@ gem "pg"
 gem "responders"
 
 group :development, :test do
+  gem "minitest-spec-rails"
   gem "minitest-rails-capybara"
   gem "minitest-line"
 end
