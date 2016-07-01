@@ -40,15 +40,15 @@ gem "tyrant", "0.0.3"
 # gem "tyrant", github: "apotonick/tyrant"
 # gem "tyrant", path: "../tyrant"
 
-gem "trailblazer", "1.1.0"
-gem "trailblazer-loader", '0.0.1'
-gem "trailblazer-rails", '0.2.0'
+gem "trailblazer"#, "1.1.0"
+gem "trailblazer-loader" #, '0.0.1'
+gem "trailblazer-rails" #, '0.2.0'
 # gem "trailblazer", path: "../trailblazer"
 # gem "trailblazer-loader", path: "../trailblazer-loader"
 # gem "trailblazer-rails", path: "../trailblazer-rails"
 
-gem "reform", "2.2.0"
-gem "reform-rails"
+gem "reform", ">= 2.2.0"
+gem "reform-rails" #, path: "../reform-rails"
 
 # gem "disposable", path: "../disposable"
 # gem "cells", git: "https://github.com/apotonick/cells"
