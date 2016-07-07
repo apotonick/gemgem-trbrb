@@ -1,17 +1,17 @@
 source "https://rubygems.org"
-gem "rails", "~> 4.2.0"
-gem "sass-rails", "~> 4.0.3"
-gem "uglifier", ">= 1.3.0"
-gem "coffee-rails", "~> 4.0.0"
+gem "rails", "5.0.0" #, "~> 4.2.0"
+gem "sass-rails"#, "~> 4.0.3"
+gem "uglifier"#, ">= 1.3.0"
+gem "coffee-rails"#, "~> 4.0.0"
 gem "jquery-rails"
-gem "foundation-rails", "5.4.5.0"
+gem "foundation-rails", "< 6.0"
 gem "haml-rails"
 gem "simple_form"
 gem "therubyracer", :platform=>:ruby
 gem "thin"
 group :development do
   gem "binding_of_caller", :platforms=>[:mri_21]
-  gem "quiet_assets"
+  # gem "quiet_assets"
   gem "rails_layout"
 end
 gem "pg"
@@ -41,20 +41,20 @@ gem "tyrant", "0.0.3"
 # gem "tyrant", path: "../tyrant"
 
 gem "trailblazer"#, "1.1.0"
-gem "trailblazer-loader" #, '0.0.1'
+# gem "trailblazer-loader" #, '0.0.1'
 gem "trailblazer-rails" #, '0.2.0'
 # gem "trailblazer", path: "../trailblazer"
 # gem "trailblazer-loader", path: "../trailblazer-loader"
-# gem "trailblazer-rails", path: "../trailblazer-rails"
+# gem "trailblazer-rails" , path: "../trailblazer-rails"
 
-gem "reform", ">= 2.2.0"
-gem "reform-rails" #, path: "../reform-rails"
+# gem "reform", ">= 2.2.0"
+# gem "reform-rails" #, path: "../reform-rails"
 
 # gem "disposable", path: "../disposable"
 # gem "cells", git: "https://github.com/apotonick/cells"
 # gem "cells", path: "../cells"
 gem "cells-rails"
-gem "cells", "4.1.1"
+gem "cells", "4.1.2"
 gem "cells-haml"
 gem "haml", github: "haml/haml", ref: "7c7c169"
 gem "kaminari-cells"

@@ -15,3 +15,5 @@ require "roar/json/hal"
     {}
   end
 end
+
+# Rails.application.config.reform.validations = :active_model
